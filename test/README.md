@@ -494,6 +494,23 @@ See [TESTING_NOTES.md](TESTING_NOTES.md) for detailed information about:
 - How to add custom rules for better detection
 - Tips for improving test results
 
+## System-Level IDPS Test Scripts (R155 Aligned)
+
+Test scripts aligned with **System-Level IDPS Detection Test Cases For Embedded Linux v1.1** are in `test/idps/`:
+
+- **30 test scripts** matching document case IDs (SYS-PROC-001, SYS-FILE-001, etc.)
+- **TEST_METHODS.md** – detailed test method steps for each case
+- **README.md** – mapping and usage
+
+```bash
+cd /opt/falco-test
+bash idps/SYS-PROC-001.sh   # Example: unexpected uid/gid
+bash idps/SYS-FILE-001.sh   # Example: writes to /etc
+# Run all: for f in idps/SYS-*.sh; do bash "$f"; done
+```
+
+---
+
 ## Reference Resources
 
 - [Falco Official Documentation](https://falco.org/docs/)
