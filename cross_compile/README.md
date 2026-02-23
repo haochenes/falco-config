@@ -94,18 +94,16 @@ After successful build:
 
 ## Deployment to Target
 
-Copy the compiled files to the target device:
+Copy the compiled files to the target device (manual), or use the **board_test** directory for automated deploy and remote test execution:
 
 ```bash
-# Copy Falco binary
+# Manual copy
 scp install/bin/falco target:/usr/local/bin/
-
-# Copy configuration
 scp -r install/etc/falco target:/etc/
-
-# Copy rules
 scp -r install/share/falco target:/usr/share/
 ```
+
+For board-level deploy and running tests via SSH, see **../board_test** (e.g. `board_test/deploy_to_board.sh`, `board_test/run_tests_remote.sh`).
 
 ## Cross-Compilation Patches
 
