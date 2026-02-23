@@ -109,6 +109,16 @@ check_prerequisites() {
         fi
     done
     
+    # When building modern eBPF, host clang is required to compile BPF programs (CO-RE)
+    if [[ "${BUILD_MODERN_BPF}" == "ON" ]]; then
+        if ! command -v clang &> /dev/null; then
+            log_error "BUILD_MODERN_BPF=ON requires clang (for BPF compilation). Install and re-run:"
+            echo "  sudo apt-get install -y clang llvm"
+            exit 1
+        fi
+        log_info "clang found: $(command -v clang) (required for modern BPF)"
+    fi
+    
     log_success "Prerequisites check passed"
 }
 
@@ -139,7 +149,27 @@ clone_falco() {
     git submodule update --init --recursive
     
     apply_falco_container_plugin_arch_fix
+    apply_falco_openssl_cross_compile
     log_success "Falco source ready"
+}
+
+# OpenSSL: use Configure linux-aarch64 when cross-compiling (avoid ./config which adds -m64 for x86_64)
+apply_falco_openssl_cross_compile() {
+    local openssl_cmake="${SRC_DIR}/falco/cmake/modules/openssl.cmake"
+    [[ -f "${openssl_cmake}" ]] || return 0
+    if grep -q "OPENSSL_CONFIGURE_CMD\|Configure linux-aarch64" "${openssl_cmake}" 2>/dev/null; then
+        return 0
+    fi
+    local patch_file="${PATCHES_DIR}/fix_openssl_cross_compile.patch"
+    if [[ -f "${patch_file}" ]]; then
+        log_info "Patching Falco openssl.cmake for aarch64 cross-compilation (OpenSSL Configure)"
+        (cd "${SRC_DIR}/falco" && patch -p1 -s -f < "${patch_file}") || true
+        if grep -q "OPENSSL_CONFIGURE_CMD" "${openssl_cmake}" 2>/dev/null; then
+            log_success "OpenSSL will use Configure linux-aarch64 for cross-compilation"
+        else
+            log_warning "OpenSSL patch may have failed; if build fails with -m64, apply fix_openssl_cross_compile.patch manually"
+        fi
+    fi
 }
 
 # Fix container plugin arch: Falco uses CMAKE_HOST_SYSTEM_PROCESSOR to pick prebuilt
@@ -250,7 +280,7 @@ ensure_bpftool() {
         log_info "Trying to fetch libelf/zlib via apt-get download (no sudo)..."
         (cd "${BUILD_DIR}" && mkdir -p apt-download && cd apt-download \
             && apt-get update -qq 2>/dev/null && apt-get download libelf-dev zlib1g-dev 2>/dev/null) || true
-        for deb in "${BUILD_DIR}"/apt-download/*.deb 2>/dev/null; do
+        for deb in "${BUILD_DIR}"/apt-download/*.deb; do
             [[ -f "${deb}" ]] && dpkg -x "${deb}" "${apt_deps}" 2>/dev/null || true
         done
         for pcdir in "${apt_deps}/usr/lib/x86_64-linux-gnu/pkgconfig" "${apt_deps}/usr/lib/pkgconfig"; do
@@ -390,17 +420,22 @@ install_falco() {
 
 # Build Falco kernel module (falco.ko) against target kernel tree.
 # Requires: BUILD_KMOD=ON, LINUX_KERNEL_SRC set, and Falco configured (libs source present).
-# Skipped when BUILD_MODERN_BPF=ON (no .ko needed; use engine.kind: modern_ebpf on board).
+# When BUILD_MODERN_BPF=OFF, set BUILD_KMOD=ON (and LINUX_KERNEL_SRC) to build falco.ko for engine.kind: kmod on board.
+# Skipped when BUILD_KMOD=OFF or LINUX_KERNEL_SRC missing (warning only, "all" still produces binary).
 build_falco_kmod() {
     [[ "${BUILD_KMOD}" != "ON" ]] && return 0
-    [[ -z "${LINUX_KERNEL_SRC}" ]] && log_warning "BUILD_KMOD=ON but LINUX_KERNEL_SRC not set, skipping falco.ko" && return 0
+    if [[ -z "${LINUX_KERNEL_SRC}" ]]; then
+        log_warning "BUILD_KMOD=ON but LINUX_KERNEL_SRC not set; skipping falco.ko (set LINUX_KERNEL_SRC in build.cfg to build .ko)"
+        return 0
+    fi
+    LINUX_KERNEL_SRC="$(eval echo "${LINUX_KERNEL_SRC}")"
     if [[ ! -d "${LINUX_KERNEL_SRC}" ]]; then
-        log_error "LINUX_KERNEL_SRC not found: ${LINUX_KERNEL_SRC}"
-        exit 1
+        log_warning "LINUX_KERNEL_SRC not found: ${LINUX_KERNEL_SRC}; skipping falco.ko (binary will still be installed)"
+        return 0
     fi
     if [[ ! -f "${LINUX_KERNEL_SRC}/Makefile" ]]; then
-        log_error "LINUX_KERNEL_SRC does not look like a kernel tree (no Makefile): ${LINUX_KERNEL_SRC}"
-        exit 1
+        log_warning "LINUX_KERNEL_SRC does not look like a kernel tree (no Makefile): ${LINUX_KERNEL_SRC}; skipping falco.ko"
+        return 0
     fi
     log_info "Building falco.ko against kernel: ${LINUX_KERNEL_SRC}"
     LIBS_SRC=""
@@ -494,10 +529,11 @@ show_help() {
     echo "  STRIP_BINARY:      ${STRIP_BINARY}"
     echo "  MINIMAL_BUILD:     ${MINIMAL_BUILD}"
     echo "  BUILD_MODERN_BPF:  ${BUILD_MODERN_BPF} (ON = no .ko needed, use engine.kind: modern_ebpf on board)"
-    echo "  BUILD_KMOD:        ${BUILD_KMOD}"
+    echo "  BUILD_KMOD:        ${BUILD_KMOD} (ON + LINUX_KERNEL_SRC => build falco.ko when BUILD_MODERN_BPF=OFF)"
     echo "  LINUX_KERNEL_SRC:  ${LINUX_KERNEL_SRC:-<not set>}"
     echo ""
     echo "Output: ${INSTALL_DIR}/bin/falco"
+    [[ "${BUILD_KMOD}" == "ON" ]] && echo "        ${INSTALL_DIR}/share/falco/falco.ko (if LINUX_KERNEL_SRC exists)"
 }
 
 # Main
@@ -511,6 +547,8 @@ main() {
             clone_falco
             configure_falco
             build_falco
+            # When BUILD_KMOD=ON (e.g. BUILD_MODERN_BPF=OFF and using kmod on board), build falco.ko
+            build_falco_kmod
             install_falco
             ;;
         configure)

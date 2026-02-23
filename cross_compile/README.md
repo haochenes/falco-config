@@ -18,9 +18,25 @@ Ensure the following are installed on your host system:
 - Make
 - wget
 
-The following paths must exist:
-- Sysroot: `/opt/ti-processor-sdk-linux-adas-j721e-evm-09_02_00_05/linux-devkit/sysroots/aarch64-oe-linux`
-- Cross-compiler: `/opt/cross-compile/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin`
+**For modern eBPF build** (`BUILD_MODERN_BPF=ON` in `build.cfg`):
+
+- **clang** and **llvm** (to compile BPF programs at build time):
+  ```bash
+  sudo apt-get install -y clang llvm
+  ```
+- **libelf-dev** and **zlib1g-dev** (for bpftool; script can build bpftool from source if needed):
+  ```bash
+  sudo apt-get install -y libelf-dev zlib1g-dev
+  ```
+- Optionally **bpftool** (if installed, the script uses it; otherwise it will build from source):
+  ```bash
+  sudo apt-get install -y bpftool
+  ```
+
+The following paths must exist (or set in `build.cfg`):
+
+- Sysroot: e.g. `/opt/ti-processor-sdk-linux-adas-j721e-evm-09_02_00_05/linux-devkit/sysroots/aarch64-oe-linux`
+- Cross-compiler: e.g. `/opt/cross-compile/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin`
 
 ## Quick Start
 
@@ -144,14 +160,34 @@ This usually means some dependency was built for x86 instead of ARM64. Clean and
 ./build_falco.sh all
 ```
 
+### [MODERN BPF] unable to find clang
+
+When `BUILD_MODERN_BPF=ON`, the build needs **clang** to compile BPF programs. Install and retry:
+```bash
+sudo apt-get install -y clang llvm
+./build_falco.sh all
+```
+
+### events_dimensions_generator: not found (modern BPF cross-compile)
+
+When `BUILD_MODERN_BPF=ON`, falcosecurity-libs needs host-built generators; cross-compile may fail with this error. Workaround: set `BUILD_MODERN_BPF=OFF` and `MINIMAL_BUILD=ON` in `build.cfg` to produce an aarch64 binary (use `engine.kind: kmod` or `nodriver` on the board).
+
 ## Build Configuration
 
-The Falco build uses the following configuration:
-- `MINIMAL_BUILD=ON` - Minimal build to reduce dependencies
-- `BUILD_DRIVER=OFF` - No kernel module (requires kernel source)
-- `BUILD_BPF=OFF` - No BPF probe
-- `BUILD_FALCO_MODERN_BPF=OFF` - No modern BPF
-- `USE_BUNDLED_DEPS=ON` - Use bundled dependencies for ARM64
+Edit `build.cfg` to control the build:
+
+| Option | Description | Modern eBPF 推荐 |
+|--------|-------------|------------------|
+| `BUILD_MODERN_BPF` | Enable modern eBPF driver (no .ko on board) | **ON** |
+| `MINIMAL_BUILD` | Minimal deps; with modern BPF can be OFF | OFF |
+| `BUILD_DRIVER` | Build legacy driver | OFF |
+| `BUILD_BPF` | Build legacy BPF probe | OFF |
+| `BUILD_KMOD` | Build falco.ko for target kernel | OFF（modern eBPF 无需 .ko） |
+| `USE_BUNDLED_DEPS=ON` | Use bundled deps for ARM64 | ON |
+
+**Modern eBPF 流程**：在 `build.cfg` 中设 `BUILD_MODERN_BPF=ON`、`MINIMAL_BUILD=OFF`，主机安装 clang/llvm 后执行 `./build_falco.sh all`。板端使用 `engine.kind: modern_ebpf`（见 `board_test/config/falco.modern_bpf.board.yaml`），无需编译或加载 falco.ko；板端内核需支持 BTF（通常 5.8+）。
+
+**BUILD_MODERN_BPF=OFF 时使用 kmod**：若板端要用 `engine.kind: kmod`，需 falco.ko。在 `build.cfg` 中设 `BUILD_KMOD=ON`、`LINUX_KERNEL_SRC` 指向板子内核源码树（与板端 `uname -r` 一致且已 `make modules_prepare` 或完整编过），执行 `./build_falco.sh all` 会同时产出 `install/bin/falco` 和 `install/share/falco/falco.ko`；部署后将 falco.ko 拷到板子并 `insmod`，再启动 Falco。
 
 ## Notes
 

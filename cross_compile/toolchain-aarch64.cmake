@@ -78,6 +78,9 @@ link_directories(
 set(ENV{PKG_CONFIG_PATH} "${SYSROOT}/usr/lib/pkgconfig:${SYSROOT}/usr/share/pkgconfig")
 set(ENV{PKG_CONFIG_SYSROOT_DIR} "${SYSROOT}")
 
+# OpenSSL cross-compile: use Configure linux-aarch64 with this prefix (triple + hyphen; compiler bin must be in PATH when building)
+set(OPENSSL_CROSS_COMPILE_PREFIX "${CROSS_COMPILE_TRIPLE}-" CACHE STRING "OpenSSL cross-compile prefix")
+
 # Print configuration summary
 message(STATUS "Cross-compilation toolchain loaded:")
 message(STATUS "  SYSROOT: ${SYSROOT}")

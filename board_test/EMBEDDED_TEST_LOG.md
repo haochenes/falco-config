@@ -134,6 +134,55 @@ _（下面按时间顺序记录：现象 → 原因 → 解决/待办）_
 
 ---
 
+### 问题 6：交叉编译 modern eBPF 完整步骤（从零到二进制）
+
+**目标**：在主机上交叉编译出带 modern eBPF 的 Falco 二进制，部署到板端后使用 `engine.kind: modern_ebpf`，无需 falco.ko。
+
+**步骤**：
+
+1. **主机依赖**（编译机需安装）  
+   - 基础：cmake, git, make, wget  
+   - **Modern BPF 必须**：clang、llvm（用于编译 BPF 程序）  
+     ```bash
+     sudo apt-get install -y clang llvm
+     ```  
+   - bpftool / libelf：若需脚本自建 bpftool，则需 `libelf-dev zlib1g-dev`；或直接安装 bpftool：  
+     ```bash
+     sudo apt-get install -y libelf-dev zlib1g-dev
+     # 或（若发行版提供）
+     sudo apt-get install -y bpftool
+     ```
+
+2. **build.cfg 配置**  
+   - `BUILD_MODERN_BPF=ON`  
+   - `MINIMAL_BUILD=OFF`  
+   - `BUILD_KMOD=OFF`（modern eBPF 不需要 .ko）  
+   - 正确设置 `SYSROOT`、`CROSS_COMPILE_PREFIX`、`CROSS_COMPILE_TRIPLE`（以及可选 `LINUX_KERNEL_SRC` 若需单独编 .ko）
+
+3. **执行编译**  
+   ```bash
+   cd cross_compile
+   ./build_falco.sh all
+   ```  
+   成功后在 `install/bin/falco` 得到 aarch64 二进制，且构建时已启用 modern_ebpf。
+
+4. **部署与板端配置**  
+   - 使用 `board_test/deploy_to_board.sh` 部署；  
+   - 板端 Falco 配置使用 `engine.kind: modern_ebpf`（例如 `board_test/config/falco.modern_bpf.board.yaml` 拷入 `config.d/`）；  
+   - 板端内核需支持 BTF（通常 5.8+），见 [KERNEL_CONFIG_TDA4_FALCO.md](KERNEL_CONFIG_TDA4_FALCO.md)。
+
+5. **验证**  
+   - 板端运行 `falco --dry-run -c /etc/falco/falco.yaml` 不应再报「MODERN_BPF engine is not supported」或「error opening device /dev/falco0」（modern eBPF 不使用 /dev/falco0）。
+
+**若曾报 `[MODERN BPF] unable to find clang`**：按上面安装 clang/llvm 后重新执行 `./build_falco.sh all`（建议先 `./build_falco.sh clean` 再 `all`）。
+
+**当前交叉编译状态（2026-02-23）**  
+- **已可产出 aarch64 二进制**：在 `build.cfg` 中设 `BUILD_MODERN_BPF=OFF`、`MINIMAL_BUILD=ON`，执行 `./build_falco.sh all` 可得到 `install/bin/falco`（ELF aarch64，约 5.6MB stripped）。板端可用 `engine.kind: kmod`（需单独编 falco.ko）或 `nodriver` 做基础验证。  
+- **OpenSSL 交叉编译**：已通过 patch 使用 OpenSSL `Configure linux-aarch64 --cross-compile-prefix=...`，并在配置时用 `env -u CC -u AR ...` 避免与 toolchain 的 CC 冲突。  
+- **Modern eBPF 交叉编译**：`BUILD_MODERN_BPF=ON` 时构建会依赖主机工具 `events_dimensions_generator` 等（falcosecurity-libs 内）。若报错 `events_dimensions_generator: not found`，可暂时设 `BUILD_MODERN_BPF=OFF` 先产出二进制，或等待/贡献 falcosecurity-libs 对交叉编译时 host 工具路径的修复。
+
+---
+
 ### 交叉编译 + 部署 + 启动测试（2026-01-10）
 
 **执行**：`./build_falco.sh all`（未改 BUILD_MODERN_BPF）→ `./deploy_to_board.sh` → 板端 `falco -c /etc/falco/falco.yaml`。
