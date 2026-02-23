@@ -1,0 +1,6 @@
+# Embedded board: no container plugin; use kmod driver (modern_ebpf not in this build).
+load_plugins: []
+engine:
+  kind: kmod
+rules_files:
+  - /etc/falco/falco_rules_embedded.yaml

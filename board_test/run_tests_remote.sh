@@ -4,11 +4,11 @@
 # Reads board.cfg. Tests must be deployed first (./deploy_to_board.sh).
 #
 # Usage:
-#   ./run_tests_remote.sh              # run all idps + cases
+#   ./run_tests_remote.sh embedded     # run embedded tests only (no Docker, for TDA4VM)
 #   ./run_tests_remote.sh idps         # run all IDPS tests
 #   ./run_tests_remote.sh cases        # run all case*.sh tests
-#   ./run_tests_remote.sh SYS-PROC-001 # run single IDPS test
-#   ./run_tests_remote.sh --start-falco # start Falco on board then run all
+#   ./run_tests_remote.sh all          # idps + cases
+#   ./run_tests_remote.sh --start-falco embedded  # start Falco then run embedded
 
 set -e
 
@@ -55,8 +55,16 @@ setup_ssh() {
 }
 
 start_falco_on_board() {
-    log_info "Starting Falco on board (background)..."
-    "${SSH_CMD[@]}" "${TARGET}" "pkill falco 2>/dev/null; nohup falco -c /etc/falco/falco.yaml > /var/log/falco.log 2>&1 & sleep 1; pgrep falco && echo Falco started || echo Falco may have failed"
+    log_info "Starting Falco on board (systemd or start script)..."
+    "${SSH_CMD[@]}" "${TARGET}" "pkill falco 2>/dev/null; sleep 1; \
+        if command -v systemctl >/dev/null 2>&1 && [ -f /etc/systemd/system/falco.service ]; then \
+            systemctl start falco 2>/dev/null && echo 'Falco started (systemd)' || echo 'systemctl start falco failed'; \
+        elif [ -x /opt/falco-test/services/falco-start.sh ]; then \
+            /opt/falco-test/services/falco-start.sh; \
+        else \
+            nohup /usr/local/bin/falco -c /etc/falco/falco.yaml >> /var/log/falco.log 2>&1 & sleep 1; \
+        fi; \
+        pgrep -x falco >/dev/null && echo 'Falco is running' || echo 'Falco may have failed - check /var/log/falco.log'"
 }
 
 run_remote() {
@@ -91,21 +99,21 @@ MODE="all"
 
 while [[ -n "$1" ]]; do
     case "$1" in
-        --start-falco) START_FALCO=1; shift ;;
+        --start-falco) START_Falco=1; shift ;;
         idps)         MODE="idps"; shift ;;
         cases)        MODE="cases"; shift ;;
+        embedded)     MODE="embedded"; shift ;;
         all)          MODE="all"; shift ;;
         -h|--help)
             echo "Usage: $0 [mode] [--start-falco]"
-            echo "  mode: all (default) | idps | cases | <test_name>"
+            echo "  mode: embedded | idps | cases | all | <test_name>"
             echo "  --start-falco  Start Falco on board before running tests"
             echo "  Examples:"
-            echo "    $0                    # run all idps + cases"
-            echo "    $0 idps               # run all SYS-*.sh"
-            echo "    $0 cases               # run all case*.sh"
-            echo "    $0 SYS-PROC-001        # run single IDPS test"
-            echo "    $0 case1_sensitive_file_opening"
-            echo "    $0 --start-falco all   # start Falco then run all"
+            echo "    $0 --start-falco embedded  # start Falco + run embedded tests (no Docker)"
+            echo "    $0 embedded                # run embedded tests only"
+            echo "    $0 idps                    # run all SYS-*.sh"
+            echo "    $0 cases                   # run all case*.sh"
+            echo "    $0 SYS-PROC-001            # run single test"
             exit 0
             ;;
         *) MODE="$1"; shift ;;

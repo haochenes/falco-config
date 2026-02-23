@@ -1,0 +1,42 @@
+# Minimal Falco rules for embedded (no container plugin).
+# Use with load_plugins: [] and rules_files: [/etc/falco/falco_rules_embedded.yaml]
+- required_engine_version: 0.57.0
+
+- macro: open_write
+  condition: (evt.type in (open,openat,openat2) and evt.is_open_write=true and fd.typechar='f' and fd.num>=0)
+
+- macro: open_read
+  condition: (evt.type in (open,openat,openat2) and evt.is_open_read=true and fd.typechar='f' and fd.num>=0)
+
+- macro: open_file_failed
+  condition: (evt.type in (open,openat,openat2) and fd.typechar='f' and fd.num=-1 and evt.res startswith E)
+
+- macro: etc_dir
+  condition: (fd.name startswith /etc/)
+
+- list: shell_binaries
+  items: [ash, bash, csh, ksh, sh, tcsh, zsh, dash]
+
+- macro: user_ssh_directory
+  condition: (fd.name contains '/.ssh/' and fd.name glob '/home/*/.ssh/*')
+
+- macro: directory_traversal
+  condition: (fd.nameraw contains '../' and fd.nameraw glob '*../*../*')
+
+- rule: Write to etc (embedded)
+  desc: File under /etc opened for writing (host-only, no container).
+  condition: open_write and etc_dir
+  output: Write to etc | file=%fd.name process=%proc.name command=%proc.cmdline
+  priority: WARNING
+
+- rule: Directory traversal monitored file read (embedded)
+  desc: Read under /etc or .ssh via path traversal (host-only).
+  condition: (open_read or open_file_failed) and (etc_dir or user_ssh_directory or fd.name startswith /root/.ssh or fd.name contains "id_rsa") and directory_traversal and not proc.pname in (shell_binaries)
+  output: Read monitored file via directory traversal | file=%fd.name process=%proc.name
+  priority: WARNING
+
+- rule: Execution from tmp (embedded)
+  desc: Process executed from /tmp (common post-exploit).
+  condition: evt.type=execve and fd.directory=/tmp
+  output: Execution from /tmp | process=%proc.name command=%proc.cmdline
+  priority: WARNING

@@ -1,0 +1,24 @@
+# Driverkit 配置示例：为 TDA4 板子构建 falco.ko
+# 使用前请：
+# 1. 复制为 tda4-falco.yaml
+# 2. 将 kernelrelease 改为板子上 uname -r 的完整输出（如 6.1.80-ti-g2e423244f8c0）
+# 3. 将 kernelconfigdata 改为 TDA4 内核 .config 的 base64（见下方命令）
+#
+# 生成 kernelconfigdata：
+#   cd ~/work/tda4-bsp/bsp/ti-linux-kernel && cat .config | base64 -w0
+#
+# 构建命令（在装有 Docker 和 driverkit 的主机上，可指定超时）：
+#   driverkit docker -c tda4-falco.yaml --timeout=300
+#
+# 若 vanilla 无法自动下载该 release 的内核头文件，需在配置中增加 kernelurls，
+# 指向你的内核或 kernel-headers 压缩包 URL（例如 TI 提供的 tarball）。
+
+kernelrelease: "6.1.80-ti-g2e423244f8c0"   # 改为板子 uname -r 的完整输出
+kernelversion: 1
+target: vanilla
+architecture: arm64
+output:
+  module: /tmp/falco-tda4.ko
+driverversion: master
+# 从 TDA4 内核目录的 .config 生成：cat .config | base64 -w0
+kernelconfigdata: "PASTE_BASE64_OUTPUT_HERE"

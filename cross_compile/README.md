@@ -92,6 +92,9 @@ After successful build:
 - Configuration: `install/etc/falco/`
 - Rules: `install/share/falco/`
 
+**现代推荐：modern eBPF（无需 .ko）**  
+在 `build.cfg` 中设置 **BUILD_MODERN_BPF=ON** 后重新编译，板端配置 `engine.kind: modern_ebpf`（或使用 `board_test/config/falco.modern_bpf.board.yaml`），无需编译或部署 falco.ko，性能更好、兼容性强（Falco 0.32+ 默认推荐）。板端内核需支持 BTF（通常 5.8+）。
+
 ## Deployment to Target
 
 Copy the compiled files to the target device (manual), or use the **board_test** directory for automated deploy and remote test execution:
@@ -112,6 +115,12 @@ The build script automatically applies patches to the following bundled dependen
 - `zlib.cmake` - Use cross-compiler CC/AR/RANLIB
 - `jsoncpp.cmake` - Pass cross-compilation parameters
 - `re2.cmake` - Pass cross-compilation parameters
+
+### Container plugin (libcontainer.so) architecture fix
+
+Falco’s CMake uses **CMAKE_HOST_SYSTEM_PROCESSOR** (build host) to choose which prebuilt `libcontainer.so` to download. When you cross-compile on x86_64 for aarch64, the host is x86_64, so the build downloads the **x86_64** plugin and installs it into `install/share/falco/plugins/`. On the aarch64 board that `.so` cannot be loaded (wrong architecture).
+
+The build script therefore patches Falco’s `CMakeLists.txt` after clone so that when **CMAKE_CROSSCOMPILING** is true it uses **CMAKE_SYSTEM_PROCESSOR** (target arch) to select the plugin. That way the correct **aarch64** `libcontainer.so` is downloaded and installed. No manual download or build of the container plugin is needed for aarch64.
 
 ## Troubleshooting
 

@@ -5,7 +5,7 @@
 ## 依赖
 
 - Falco 已通过 **cross_compile** 编译：`cross_compile/install/` 下存在 `bin/falco`、`etc/falco`、`share/falco`
-- 测试脚本在仓库根目录：`test/cases/`、`test/idps/`
+- 测试脚本（master）：`test/examples/`（case*.sh）→ 板子 `cases/`；`test/test_cases/`（SYS-*.sh）→ 板子 `idps/`
 - 板子可 SSH：在 `board.cfg` 中配置 IP、用户、密码（或密钥）
 
 ## 配置
@@ -20,10 +20,16 @@
 
 ## 部署
 
+部署时会安装 **falco-start.sh** 到板子 `${BOARD_TEST_DIR}/falco-start.sh`（默认 `/opt/falco-test/falco-start.sh`），用于无 systemd 时手动启动 Falco（会尝试自动加载 falco.ko）。
+
+- **配置逻辑**：若 `cross_compile/install` 中存在 aarch64 的 `libcontainer.so`，则部署 container 插件 + 完整规则；否则部署嵌入式配置（无 container 插件、仅主机规则）。部署时会修正板端 `falco.yaml` 中的 `library_path`，避免主机路径。
+- **驱动选择**：**推荐 modern eBPF**（无需 .ko）：在 `cross_compile/build.cfg` 中设 `BUILD_MODERN_BPF=ON` 重新编译，板端使用 `engine.kind: modern_ebpf`（或部署 `config/falco.modern_bpf.board.yaml`）。若构建未含 modern-bpf，则使用 kmod 并部署 falco.ko。
+- **falco.ko**：若使用 kmod，需用 `cross_compile` 的 BUILD_KMOD=ON 编出 `install/share/falco/falco.ko`，部署会拷到板子 `/usr/share/falco/`；板端需加载该模块后 Falco 才能采集 syscall。
+
 ```bash
 cd board_test
 
-# 部署 Falco + 测试脚本（会覆盖板子上已有文件）
+# 部署 Falco + 服务脚本 + 测试脚本（会覆盖板子上已有文件）
 ./deploy_to_board.sh
 
 # 仅部署 Falco

@@ -63,6 +63,10 @@ BUILD_DRIVER="${BUILD_DRIVER:-OFF}"
 BUILD_BPF="${BUILD_BPF:-OFF}"
 BUILD_MODERN_BPF="${BUILD_MODERN_BPF:-OFF}"
 MINIMAL_BUILD="${MINIMAL_BUILD:-ON}"
+BUILD_KMOD="${BUILD_KMOD:-OFF}"
+# Expand LINUX_KERNEL_SRC (e.g. ~/work/tda4-bsp/...) for use in commands
+LINUX_KERNEL_SRC="${LINUX_KERNEL_SRC:-}"
+[[ -n "${LINUX_KERNEL_SRC}" ]] && LINUX_KERNEL_SRC="$(eval echo "${LINUX_KERNEL_SRC}")"
 
 TOOLCHAIN_FILE="${SCRIPT_DIR}/toolchain-aarch64.cmake"
 
@@ -134,7 +138,29 @@ clone_falco() {
     cd "${SRC_DIR}/falco"
     git submodule update --init --recursive
     
+    apply_falco_container_plugin_arch_fix
     log_success "Falco source ready"
+}
+
+# Fix container plugin arch: Falco uses CMAKE_HOST_SYSTEM_PROCESSOR to pick prebuilt
+# libcontainer.so, so on x86_64 host cross-compiling for aarch64 we get x86_64 .so.
+# Use target arch (CMAKE_SYSTEM_PROCESSOR) when cross-compiling.
+apply_falco_container_plugin_arch_fix() {
+    local cmake_lists="${SRC_DIR}/falco/CMakeLists.txt"
+    [[ -f "${cmake_lists}" ]] || return 0
+    grep -q 'CONTAINER_PLUGIN_ARCH' "${cmake_lists}" && return 0
+    log_info "Patching Falco: use target arch for container plugin (aarch64)"
+    # Insert CONTAINER_PLUGIN_ARCH logic after set(CONTAINER_VERSION "0.6.1")
+    # Use \$ in sed so CMake receives ${CMAKE_SYSTEM_PROCESSOR} literally
+    sed -i '/set(CONTAINER_VERSION "0.6.1")/a\
+# Cross-compilation: use target arch for container plugin (upstream uses host -> wrong .so)\
+if(CMAKE_CROSSCOMPILING)\
+  set(CONTAINER_PLUGIN_ARCH \$'{CMAKE_SYSTEM_PROCESSOR}')\
+else()\
+  set(CONTAINER_PLUGIN_ARCH \$'{CMAKE_HOST_SYSTEM_PROCESSOR}')\
+endif()' "${cmake_lists}"
+    sed -i 's/if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "x86_64")/if(${CONTAINER_PLUGIN_ARCH} STREQUAL "x86_64")/' "${cmake_lists}"
+    log_success "Container plugin will be downloaded for target arch (aarch64)"
 }
 
 # Apply cross-compilation patches to libs cmake modules
@@ -179,13 +205,94 @@ apply_patches() {
             sed -i 's/-DCMAKE_BUILD_TYPE=\${CMAKE_BUILD_TYPE}$/-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}\n\t\t\t\t\t\t   -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}\n\t\t\t\t\t\t   -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}\n\t\t\t\t\t\t   -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME}\n\t\t\t\t\t\t   -DCMAKE_SYSTEM_PROCESSOR=${CMAKE_SYSTEM_PROCESSOR}\n\t\t\t\t\t\t   -DCMAKE_SYSROOT=${CMAKE_SYSROOT}/g' "${LIBS_CMAKE}/re2.cmake"
         fi
     fi
-    
+
+    # container_plugin.cmake (in falcosecurity-libs) uses CMAKE_HOST_SYSTEM_PROCESSOR in the
+    # download URL -> wrong arch. Use CONTAINER_PLUGIN_ARCH (set in Falco CMakeLists for cross-compile).
+    local CONTAINER_CMAKE="${LIBS_CMAKE}/container_plugin.cmake"
+    if [[ -f "${CONTAINER_CMAKE}" ]]; then
+        if ! grep -q "CONTAINER_PLUGIN_ARCH" "${CONTAINER_CMAKE}"; then
+            log_info "Patching container_plugin.cmake: use CONTAINER_PLUGIN_ARCH for download URL"
+            sed -i 's/\${CMAKE_HOST_SYSTEM_PROCESSOR}\.tar\.gz/\${CONTAINER_PLUGIN_ARCH}.tar.gz/g' "${CONTAINER_CMAKE}"
+            log_success "container_plugin URL will use target arch"
+        fi
+        # Force re-download with correct URL (remove cached x86_64 download)
+        local CP_PREFIX="${BUILD_DIR}/falco/container_plugin-prefix"
+        if [[ -d "${CP_PREFIX}" ]]; then
+            log_info "Removing container_plugin download cache so reconfigure fetches aarch64"
+            rm -rf "${CP_PREFIX}/src/container_plugin" "${CP_PREFIX}/src/container_plugin-stamp" 2>/dev/null || true
+        fi
+    fi
+
     log_success "Patches applied"
+}
+
+# When BUILD_MODERN_BPF=ON, ensure bpftool is available for falcosecurity-libs (gen skeleton).
+# Sets BPFTOOL_EXE for use in configure_falco. Uses system bpftool if present, else builds from source.
+ensure_bpftool() {
+    if command -v bpftool &>/dev/null; then
+        if bpftool help 2>&1 | grep -qw gen; then
+            BPFTOOL_EXE="$(command -v bpftool)"
+            log_success "Using system bpftool: ${BPFTOOL_EXE}"
+            return
+        fi
+    fi
+    local bpftool_build="${BUILD_DIR}/bpftool-build"
+    local bpftool_bin="${bpftool_build}/src/bootstrap/bpftool"
+    if [[ -x "${bpftool_bin}" ]]; then
+        BPFTOOL_EXE="${bpftool_bin}"
+        log_success "Using built bpftool: ${BPFTOOL_EXE}"
+        return
+    fi
+    # Building bpftool from source needs libelf (libelf-dev) and zlib (zlib1g-dev) on the host.
+    if ! pkg-config --exists libelf 2>/dev/null; then
+        local apt_deps="${bpftool_build}/apt-deps"
+        mkdir -p "${BUILD_DIR}" "${apt_deps}"
+        log_info "Trying to fetch libelf/zlib via apt-get download (no sudo)..."
+        (cd "${BUILD_DIR}" && mkdir -p apt-download && cd apt-download \
+            && apt-get update -qq 2>/dev/null && apt-get download libelf-dev zlib1g-dev 2>/dev/null) || true
+        for deb in "${BUILD_DIR}"/apt-download/*.deb 2>/dev/null; do
+            [[ -f "${deb}" ]] && dpkg -x "${deb}" "${apt_deps}" 2>/dev/null || true
+        done
+        for pcdir in "${apt_deps}/usr/lib/x86_64-linux-gnu/pkgconfig" "${apt_deps}/usr/lib/pkgconfig"; do
+            if [[ -d "${pcdir}" ]] && [[ -f "${pcdir}/libelf.pc" ]]; then
+                export PKG_CONFIG_PATH="${pcdir}${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
+                break
+            fi
+        done
+        if ! pkg-config --exists libelf 2>/dev/null; then
+            log_error "BUILD_MODERN_BPF=ON requires host libelf. Install and re-run:"
+            echo "  sudo apt-get install -y libelf-dev zlib1g-dev"
+            echo "Then either install bpftool (sudo apt-get install -y bpftool) or let this script build it."
+            exit 1
+        fi
+    fi
+    log_info "Building bpftool (required for modern BPF)..."
+    mkdir -p "${BUILD_DIR}"
+    if [[ ! -d "${bpftool_build}/.git" ]]; then
+        git clone --depth 1 https://github.com/libbpf/bpftool.git "${bpftool_build}"
+        (cd "${bpftool_build}" && git submodule update --init --recursive)
+    fi
+    if ! (cd "${bpftool_build}/src" && make bootstrap -j"${JOBS}" 2>&1); then
+        log_error "bpftool build failed. Install bpftool: sudo apt-get install -y bpftool (if available), then re-run."
+        exit 1
+    fi
+    if [[ -x "${bpftool_bin}" ]]; then
+        BPFTOOL_EXE="${bpftool_bin}"
+        log_success "bpftool built: ${BPFTOOL_EXE}"
+    else
+        log_error "bpftool binary not found after build. Install: sudo apt-get install -y bpftool"
+        exit 1
+    fi
 }
 
 # Configure Falco
 configure_falco() {
     log_info "Configuring Falco with CMake..."
+    
+    BPFTOOL_EXE=""
+    if [[ "${BUILD_MODERN_BPF}" == "ON" ]]; then
+        ensure_bpftool
+    fi
     
     mkdir -p "${BUILD_DIR}/falco"
     cd "${BUILD_DIR}/falco"
@@ -195,6 +302,9 @@ configure_falco() {
     [[ "${BUILD_BPF}" == "ON" ]] && CMAKE_BUILD_BPF="ON" || CMAKE_BUILD_BPF="OFF"
     [[ "${BUILD_MODERN_BPF}" == "ON" ]] && CMAKE_BUILD_MODERN_BPF="ON" || CMAKE_BUILD_MODERN_BPF="OFF"
     [[ "${MINIMAL_BUILD}" == "ON" ]] && CMAKE_MINIMAL_BUILD="ON" || CMAKE_MINIMAL_BUILD="OFF"
+    
+    local cmake_extra=()
+    [[ -n "${BPFTOOL_EXE}" ]] && cmake_extra+=(-DMODERN_BPFTOOL_EXE="${BPFTOOL_EXE}")
     
     cmake "${SRC_DIR}/falco" \
         -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" \
@@ -210,6 +320,7 @@ configure_falco() {
         -DMINIMAL_BUILD="${CMAKE_MINIMAL_BUILD}" \
         -DBUILD_FALCO_UNIT_TESTS=OFF \
         -DBUILD_SHARED_LIBS=OFF \
+        "${cmake_extra[@]}" \
         2>&1 | tee "${BUILD_DIR}/falco_cmake.log"
     
     # Apply patches after initial cmake (libs are downloaded during cmake)
@@ -231,6 +342,7 @@ configure_falco() {
         -DMINIMAL_BUILD="${CMAKE_MINIMAL_BUILD}" \
         -DBUILD_FALCO_UNIT_TESTS=OFF \
         -DBUILD_SHARED_LIBS=OFF \
+        "${cmake_extra[@]}" \
         2>&1 | tee -a "${BUILD_DIR}/falco_cmake.log"
     
     log_success "CMake configuration complete"
@@ -267,10 +379,79 @@ install_falco() {
     
     local BINARY_SIZE=$(du -h "${INSTALL_DIR}/bin/falco" | cut -f1)
     log_success "Falco installed to ${INSTALL_DIR}/bin/falco (${BINARY_SIZE})"
-    
-    # Show binary info
+    if [[ -f "${BUILD_DIR}/falco/falco.ko" ]]; then
+        mkdir -p "${INSTALL_DIR}/share/falco"
+        cp -f "${BUILD_DIR}/falco/falco.ko" "${INSTALL_DIR}/share/falco/falco.ko"
+        log_success "falco.ko installed to ${INSTALL_DIR}/share/falco/falco.ko"
+    fi
     log_info "Binary info:"
     file "${INSTALL_DIR}/bin/falco"
+}
+
+# Build Falco kernel module (falco.ko) against target kernel tree.
+# Requires: BUILD_KMOD=ON, LINUX_KERNEL_SRC set, and Falco configured (libs source present).
+# Skipped when BUILD_MODERN_BPF=ON (no .ko needed; use engine.kind: modern_ebpf on board).
+build_falco_kmod() {
+    [[ "${BUILD_KMOD}" != "ON" ]] && return 0
+    [[ -z "${LINUX_KERNEL_SRC}" ]] && log_warning "BUILD_KMOD=ON but LINUX_KERNEL_SRC not set, skipping falco.ko" && return 0
+    if [[ ! -d "${LINUX_KERNEL_SRC}" ]]; then
+        log_error "LINUX_KERNEL_SRC not found: ${LINUX_KERNEL_SRC}"
+        exit 1
+    fi
+    if [[ ! -f "${LINUX_KERNEL_SRC}/Makefile" ]]; then
+        log_error "LINUX_KERNEL_SRC does not look like a kernel tree (no Makefile): ${LINUX_KERNEL_SRC}"
+        exit 1
+    fi
+    log_info "Building falco.ko against kernel: ${LINUX_KERNEL_SRC}"
+    LIBS_SRC=""
+    for candidate in \
+        "${BUILD_DIR}/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs" \
+        "${BUILD_DIR}/falco/_deps/falcosecurity-libs-src" \
+        "${SRC_DIR}/falco/build/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs"; do
+        if [[ -d "${candidate}" && -f "${candidate}/driver/CMakeLists.txt" ]]; then
+            LIBS_SRC="${candidate}"
+            break
+        fi
+    done
+    if [[ -z "${LIBS_SRC}" ]]; then
+        log_error "falcosecurity-libs source not found. Run 'configure' first so that Falco fetches libs."
+        exit 1
+    fi
+    KMOD_BUILD="${BUILD_DIR}/falco/libs-driver-build"
+    mkdir -p "${KMOD_BUILD}"
+    cd "${KMOD_BUILD}"
+    log_info "Configuring Falco driver (DRIVER_NAME=falco)..."
+    cmake "${LIBS_SRC}" \
+        -DUSE_BUNDLED_DRIVER=ON \
+        -DBUILD_DRIVER=ON \
+        -DDRIVER_NAME=falco \
+        -DDRIVER_DEVICE_NAME=falco \
+        -DCREATE_TEST_TARGETS=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        2>&1 | tee "${BUILD_DIR}/falco_kmod_cmake.log" || true
+    DRIVER_SRC="${KMOD_BUILD}/driver/src"
+    if [[ ! -f "${DRIVER_SRC}/Makefile" ]]; then
+        log_error "Driver Makefile not generated at ${DRIVER_SRC}. Check ${BUILD_DIR}/falco_kmod_cmake.log"
+        exit 1
+    fi
+    # Patch configure Makefiles so submakes get ARCH=arm64 and CROSS_COMPILE
+    CROSS_COMPILE_VAL="${CROSS_PREFIX}/bin/${CROSS_TRIPLE}-"
+    find "${DRIVER_SRC}/configure" -name Makefile -print0 | xargs -0 sed -i 's|$(MAKE) -C $(KERNELDIR) M=$(TOP) |$(MAKE) -C $(KERNELDIR) M=$(TOP) ARCH=arm64 CROSS_COMPILE='"${CROSS_COMPILE_VAL}"' |g'
+    log_info "Compiling kernel module (ARCH=arm64, CROSS_COMPILE)..."
+    export ARCH=arm64
+    export CROSS_COMPILE="${CROSS_PREFIX}/bin/${CROSS_TRIPLE}-"
+    make -C "${LINUX_KERNEL_SRC}" \
+        M="${DRIVER_SRC}" \
+        ARCH=arm64 \
+        CROSS_COMPILE="${CROSS_PREFIX}/bin/${CROSS_TRIPLE}-" \
+        modules \
+        2>&1 | tee "${BUILD_DIR}/falco_kmod_build.log"
+    if [[ ! -f "${DRIVER_SRC}/falco.ko" ]]; then
+        log_error "falco.ko was not produced. Check ${BUILD_DIR}/falco_kmod_build.log"
+        exit 1
+    fi
+    cp -f "${DRIVER_SRC}/falco.ko" "${BUILD_DIR}/falco/falco.ko"
+    log_success "falco.ko built: ${BUILD_DIR}/falco/falco.ko"
 }
 
 # Clean build
@@ -306,12 +487,15 @@ show_help() {
     echo "  help      - Show this help"
     echo ""
     echo "Configuration (from build.cfg):"
-    echo "  SYSROOT:       ${SYSROOT}"
-    echo "  CROSS_PREFIX:  ${CROSS_PREFIX}"
-    echo "  CROSS_TRIPLE:  ${CROSS_TRIPLE}"
-    echo "  BUILD_TYPE:    ${CMAKE_BUILD_TYPE}"
-    echo "  STRIP_BINARY:  ${STRIP_BINARY}"
-    echo "  MINIMAL_BUILD: ${MINIMAL_BUILD}"
+    echo "  SYSROOT:           ${SYSROOT}"
+    echo "  CROSS_PREFIX:      ${CROSS_PREFIX}"
+    echo "  CROSS_TRIPLE:      ${CROSS_TRIPLE}"
+    echo "  BUILD_TYPE:        ${CMAKE_BUILD_TYPE}"
+    echo "  STRIP_BINARY:      ${STRIP_BINARY}"
+    echo "  MINIMAL_BUILD:     ${MINIMAL_BUILD}"
+    echo "  BUILD_MODERN_BPF:  ${BUILD_MODERN_BPF} (ON = no .ko needed, use engine.kind: modern_ebpf on board)"
+    echo "  BUILD_KMOD:        ${BUILD_KMOD}"
+    echo "  LINUX_KERNEL_SRC:  ${LINUX_KERNEL_SRC:-<not set>}"
     echo ""
     echo "Output: ${INSTALL_DIR}/bin/falco"
 }
@@ -337,7 +521,18 @@ main() {
             ;;
         build)
             check_prerequisites
+            build_falco_kmod
             build_falco
+            ;;
+        kmod)
+            check_prerequisites
+            BUILD_KMOD="ON"
+            build_falco_kmod
+            if [[ -f "${BUILD_DIR}/falco/falco.ko" ]]; then
+                mkdir -p "${INSTALL_DIR}/share/falco"
+                cp -f "${BUILD_DIR}/falco/falco.ko" "${INSTALL_DIR}/share/falco/falco.ko"
+                log_success "falco.ko installed to ${INSTALL_DIR}/share/falco/falco.ko"
+            fi
             ;;
         install)
             check_prerequisites

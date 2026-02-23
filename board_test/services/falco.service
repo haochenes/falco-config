@@ -1,0 +1,14 @@
+[Unit]
+Description=Falco runtime security (embedded board)
+After=network.target local-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/falco -c /etc/falco/falco.yaml
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/falco.log
+StandardError=append:/var/log/falco.log
+
+[Install]
+WantedBy=multi-user.target
