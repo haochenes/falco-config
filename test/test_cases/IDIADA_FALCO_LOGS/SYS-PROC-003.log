@@ -1,6 +1,6 @@
-# IDIADA Compliance - Real Falco Detection Log
+﻿# IDIADA Compliance - Real Falco Detection Log
 # Case: SYS-PROC-003
-# Collected: 2026-02-11T13:07:45
+# Collected: 2026-02-19T15:52:06Z
 # Test script: SYS-PROC-003.sh
 # ----------------------------------------
-15:10:54.837873706: Notice IDPS SYS-PROC-003 Interactive shell spawned | evt_type=execve user=<NA> user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=timeout command=bash -i -c echo interactive container_id=091f20f8d4bf container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>
+{"hostname":"docker-desktop","output":"14:52:01.511057897: Notice IDPS SYS-PROC-003 Interactive shell spawned | evt_type=execve user=<NA> user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=timeout command=bash -i -c echo interactive container_id=6accfd003649 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"6accfd003649","container.image.repository":null,"container.image.tag":null,"container.name":null,"evt.time":1771512721511057897,"evt.type":"execve","k8s.ns.name":null,"k8s.pod.name":null,"proc.cmdline":"bash -i -c echo interactive","proc.exepath":"/usr/bin/bash","proc.name":"bash","proc.pname":"timeout","user.name":"<NA>","user.uid":1000},"priority":"Notice","rule":"IDPS SYS-PROC-003 Interactive shell","source":"syscall","tags":[],"time":"2026-02-19T14:52:01.511057897Z"}

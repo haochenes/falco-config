@@ -1,0 +1,62 @@
+﻿{
+    "case_id":  "SYS-PHY-001",
+    "event_count":  2,
+    "collected":  "2026-02-19T15:51:51Z",
+    "test_script":  "SYS-PHY-001.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:46.792050821: Notice IDPS SYS-PHY Physical interface test | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=\u003cNA\u003e command=bash -c cd /opt/falco-test/test_cases \u0026\u0026 bash SYS-PHY-001.sh container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512706792050821,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "bash -c cd /opt/falco-test/test_cases \u0026\u0026 bash SYS-PHY-001.sh",
+                                             "proc.exepath":  "/usr/bin/bash",
+                                             "proc.name":  "bash",
+                                             "proc.pname":  null,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PHY Physical interface test",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:46.792050821Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:46.794811339: Notice IDPS SYS-PHY Physical interface test | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=\u003cNA\u003e command=bash SYS-PHY-001.sh container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512706794811339,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "bash SYS-PHY-001.sh",
+                                             "proc.exepath":  "/usr/bin/bash",
+                                             "proc.name":  "bash",
+                                             "proc.pname":  null,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PHY Physical interface test",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:46.794811339Z"
+                   }
+               ]
+}

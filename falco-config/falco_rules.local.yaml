@@ -1,10 +1,10 @@
 # Custom rules for System-Level IDPS Detection Test Cases (IDIADA compliance)
 # Document: System-Level IDPS Detection Test Cases For Embedded Linux v1.1
 
-# SYS-FILE-001: Writes to /etc auth files
+# SYS-FILE-001: Writes to /etc auth files (exclude paths covered by 003, 004)
 - rule: IDPS SYS-FILE-001 Write below etc
   desc: Write/open to files under /etc (auth-related or config)
-  condition: open_write and fd.name startswith /etc/
+  condition: open_write and fd.name startswith /etc/ and not (fd.directory in (/etc/pam.d, /etc/cron.d, /etc/cron.daily, /etc/cron.hourly, /etc/cron.monthly, /etc/cron.weekly) or fd.name contains authorized_keys or fd.directory in (/etc/systemd/system, /lib/systemd/system) or fd.name endswith .service or fd.name endswith .timer)
   output: IDPS SYS-FILE-001 Write to /etc | file=%fd.name evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 
@@ -53,7 +53,7 @@
 # SYS-PROC-002: Executable from writable dirs (/tmp)
 - rule: IDPS SYS-PROC-002 Exec from tmp
   desc: execve from /tmp, /var/tmp, /dev/shm (script or binary)
-  condition: spawned_process and (proc.exepath startswith /tmp/ or proc.exepath startswith /var/tmp/ or proc.exepath startswith /dev/shm/ or proc.cmdline contains "/tmp/sys_proc_002")
+  condition: spawned_process and (proc.exepath startswith /tmp/ or proc.exepath startswith /var/tmp/ or proc.exepath startswith /dev/shm/)
   output: IDPS SYS-PROC-002 Exec from writable directory | evt_type=%evt.type proc_exepath=%proc.exepath user=%user.name user_uid=%user.uid process=%proc.name parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 
@@ -80,6 +80,13 @@
   output: IDPS SYS-CONT Docker container run | evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 
+# SYS-NET-002: Low port listen (bind to port <1024 or backdoor-style 4444)
+- rule: IDPS SYS-NET-002 Low port listen
+  desc: Bind to low port (backdoor or unauthorized service)
+  condition: evt.type=bind and (fd.lport < 1024 or fd.lport = 4444)
+  output: IDPS SYS-NET-002 Bind to low port | fd.lport=%fd.lport evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
+  priority: WARNING
+
 # SYS-NET-001: Outbound connection (nc/curl to external IP)
 - rule: IDPS SYS-NET-001 Outbound connection
   desc: nc or curl to external IP (non-baseline outbound)
@@ -94,11 +101,11 @@
   output: IDPS SYS-NET-003 Raw socket / ping | evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 
-# SYS-NET-004: AF_CAN socket creation (AF_CAN=29)
+# SYS-NET-004: AF_CAN socket creation (use socket syscall domain)
 - rule: IDPS SYS-NET-004 AF_CAN socket
-  desc: python socket(29) - AF_CAN socket
-  condition: spawned_process and proc.name=python3 and (proc.cmdline contains "29, 3, 1" or proc.cmdline contains "AF_CAN")
-  output: IDPS SYS-NET-004 AF_CAN socket created | evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
+  desc: socket() with AF_CAN family
+  condition: evt.type=socket and evt.arg.domain=AF_CAN
+  output: IDPS SYS-NET-004 AF_CAN socket created | domain=%evt.arg.domain type=%evt.arg.type proto=%evt.arg.protocol user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 
 # SYS-LOG-003: Kill signal (log daemon termination attempt)
@@ -116,10 +123,10 @@
   output: IDPS SYS-PHY Physical interface test | evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: NOTICE
 
-# SYS-RES-001: CPU abuse (yes, python tight loop)
+# SYS-RES-001: CPU abuse (yes, python tight loop) - avoid matching settimeout
 - rule: IDPS SYS-RES-001 CPU abuse process
   desc: yes or python CPU-intensive process (cryptomining pattern)
-  condition: spawned_process and (proc.name=yes or (proc.name=python3 and proc.cmdline contains "time"))
+  condition: spawned_process and (proc.name=yes or (proc.name=python3 and ((proc.cmdline contains "yes" and proc.cmdline contains "/dev/null") or (proc.cmdline contains "while" and proc.cmdline contains "True"))))
   output: IDPS SYS-RES-001 CPU abuse process spawned | evt_type=%evt.type user=%user.name user_uid=%user.uid process=%proc.name proc_exepath=%proc.exepath parent=%proc.pname command=%proc.cmdline
   priority: WARNING
 

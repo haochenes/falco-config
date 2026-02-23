@@ -1,0 +1,548 @@
+﻿{
+    "case_id":  "SYS-RES-003",
+    "event_count":  20,
+    "collected":  "2026-02-19T15:52:28Z",
+    "test_script":  "SYS-RES-003.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.825203145: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742825203145,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.825203145Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.825203158: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742825203158,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.825203158Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.825475233: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742825475233,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.825475233Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.825968667: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742825968667,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.825968667Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.825971835: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742825971835,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.825971835Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.826062347: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742826062347,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.826062347Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.826099548: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742826099548,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.826099548Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.826733361: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742826733361,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.826733361Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.826734148: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742826734148,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.826734148Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827319416: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827319416,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827319416Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827397389: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827397389,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827397389Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827416674: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827416674,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827416674Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827575568: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827575568,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827575568Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827575767: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827575767,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827575767Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.827819377: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742827819377,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.827819377Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.828494066: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742828494066,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.828494066Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.828591940: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742828591940,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.828591940Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.828689141: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742828689141,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.828689141Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.829077594: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742829077594,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.829077594Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:22.829233973: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 2 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512742829233973,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 2",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:22.829233973Z"
+                   }
+               ]
+}

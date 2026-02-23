@@ -1,0 +1,63 @@
+﻿{
+    "case_id":  "SYS-KERN-004",
+    "event_count":  2,
+    "collected":  "2026-02-19T15:51:22Z",
+    "test_script":  "SYS-KERN-004.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:18.384442741: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=sudo proc_exepath=/usr/bin/sudo parent=bash command=sudo mount -o remount,rw / container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512678384442741,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sudo mount -o remount,rw /",
+                                             "proc.exepath":  "/usr/bin/sudo",
+                                             "proc.name":  "sudo",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:18.384442741Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:18.393409381: Warning IDPS SYS-KERN-004 Mount/remount operation | evt_type=mount evt_args=res=0 dev=overlay dir=/ type=overlay flags=2097184(REMOUNT|RELATIME) user=root user_uid=0 process=mount proc_exepath=/usr/bin/mount parent=sudo command=mount -o remount,rw / container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.args":  "res=0 dev=overlay dir=/ type=overlay flags=2097184(REMOUNT|RELATIME)",
+                                             "evt.time":  1771512678393409381,
+                                             "evt.type":  "mount",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "mount -o remount,rw /",
+                                             "proc.exepath":  "/usr/bin/mount",
+                                             "proc.name":  "mount",
+                                             "proc.pname":  "sudo",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-KERN-004 Mount remount",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:18.393409381Z"
+                   }
+               ]
+}

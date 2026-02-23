@@ -1,0 +1,9 @@
+﻿{
+    "case_id":  "SYS-PROC-002",
+    "event_count":  0,
+    "collected":  "2026-02-19T15:52:03Z",
+    "test_script":  "SYS-PROC-002.sh",
+    "events":  [
+
+               ]
+}

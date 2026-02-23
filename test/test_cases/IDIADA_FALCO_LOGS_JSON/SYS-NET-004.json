@@ -1,0 +1,64 @@
+﻿{
+    "case_id":  "SYS-NET-004",
+    "event_count":  2,
+    "collected":  "2026-02-19T15:51:48Z",
+    "test_script":  "SYS-NET-004.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:43.855646064: Warning IDPS SYS-NET-003 Raw socket / ping | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=python3 proc_exepath=/usr/bin/python3.10 parent=bash command=python3 -c \nimport socket\n# AF_CAN = 29, SOCK_RAW = 3, CAN_RAW = 1\ntry:\n    s = socket.socket(29, 3, 1)  # AF_CAN, SOCK_RAW, CAN_RAW\n    s.close()\n    print(\u0027AF_CAN socket created\u0027)\nexcept (OSError, socket.error) as e:\n    print(\u0027AF_CAN socket failed (expected on non-CAN systems):\u0027, e)\n container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512703855646064,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "python3 -c \nimport socket\n# AF_CAN = 29, SOCK_RAW = 3, CAN_RAW = 1\ntry:\n    s = socket.socket(29, 3, 1)  # AF_CAN, SOCK_RAW, CAN_RAW\n    s.close()\n    print(\u0027AF_CAN socket created\u0027)\nexcept (OSError, socket.error) as e:\n    print(\u0027AF_CAN socket failed (expected on non-CAN systems):\u0027, e)\n",
+                                             "proc.exepath":  "/usr/bin/python3.10",
+                                             "proc.name":  "python3",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-003 Raw socket or ping",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:43.855646064Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:43.878417278: Warning IDPS SYS-NET-004 AF_CAN socket created | domain=AF_CAN type=524291 proto=1col user=\u003cNA\u003e user_uid=1000 process=python3 proc_exepath=/usr/bin/python3.10 parent=bash command=python3 -c \nimport socket\n# AF_CAN = 29, SOCK_RAW = 3, CAN_RAW = 1\ntry:\n    s = socket.socket(29, 3, 1)  # AF_CAN, SOCK_RAW, CAN_RAW\n    s.close()\n    print(\u0027AF_CAN socket created\u0027)\nexcept (OSError, socket.error) as e:\n    print(\u0027AF_CAN socket failed (expected on non-CAN systems):\u0027, e)\n container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.arg.domain":  "AF_CAN",
+                                             "evt.arg.proto":  "1",
+                                             "evt.arg.type":  "524291",
+                                             "evt.time":  1771512703878417278,
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "python3 -c \nimport socket\n# AF_CAN = 29, SOCK_RAW = 3, CAN_RAW = 1\ntry:\n    s = socket.socket(29, 3, 1)  # AF_CAN, SOCK_RAW, CAN_RAW\n    s.close()\n    print(\u0027AF_CAN socket created\u0027)\nexcept (OSError, socket.error) as e:\n    print(\u0027AF_CAN socket failed (expected on non-CAN systems):\u0027, e)\n",
+                                             "proc.exepath":  "/usr/bin/python3.10",
+                                             "proc.name":  "python3",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-004 AF_CAN socket",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:43.878417278Z"
+                   }
+               ]
+}

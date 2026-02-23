@@ -1,0 +1,89 @@
+﻿{
+    "case_id":  "SYS-PROC-004",
+    "event_count":  3,
+    "collected":  "2026-02-19T15:52:09Z",
+    "test_script":  "SYS-PROC-004.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:04.342839535: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=sudo proc_exepath=/usr/bin/sudo parent=bash command=sudo -n true container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512724342839535,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sudo -n true",
+                                             "proc.exepath":  "/usr/bin/sudo",
+                                             "proc.name":  "sudo",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:04.342839535Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:04.353645036: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=su proc_exepath=/usr/bin/su parent=bash command=su -c id root container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512724353645036,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "su -c id root",
+                                             "proc.exepath":  "/usr/bin/su",
+                                             "proc.name":  "su",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:04.353645036Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:05.358106386: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=su proc_exepath=/usr/bin/su parent=bash command=su -c id container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512725358106386,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "su -c id",
+                                             "proc.exepath":  "/usr/bin/su",
+                                             "proc.name":  "su",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:05.358106386Z"
+                   }
+               ]
+}

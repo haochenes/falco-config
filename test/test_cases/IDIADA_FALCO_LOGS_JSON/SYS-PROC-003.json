@@ -1,0 +1,35 @@
+﻿{
+    "case_id":  "SYS-PROC-003",
+    "event_count":  1,
+    "collected":  "2026-02-19T15:52:06Z",
+    "test_script":  "SYS-PROC-003.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:52:01.511057897: Notice IDPS SYS-PROC-003 Interactive shell spawned | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=timeout command=bash -i -c echo interactive container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512721511057897,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "bash -i -c echo interactive",
+                                             "proc.exepath":  "/usr/bin/bash",
+                                             "proc.name":  "bash",
+                                             "proc.pname":  "timeout",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-003 Interactive shell",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:52:01.511057897Z"
+                   }
+               ]
+}

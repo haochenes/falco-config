@@ -1,0 +1,62 @@
+﻿{
+    "case_id":  "SYS-NET-001",
+    "event_count":  2,
+    "collected":  "2026-02-19T15:51:36Z",
+    "test_script":  "SYS-NET-001.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:32.067982687: Warning IDPS SYS-NET-001 Outbound connection to non-baseline IP | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=nc proc_exepath=/usr/bin/nc.openbsd parent=bash command=nc -zv 8.8.8.8 53 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512692067982687,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "nc -zv 8.8.8.8 53",
+                                             "proc.exepath":  "/usr/bin/nc.openbsd",
+                                             "proc.name":  "nc",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-001 Outbound connection",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:32.067982687Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:32.091952587: Warning IDPS SYS-NET-001 Outbound connection to non-baseline IP | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=curl proc_exepath=/usr/bin/curl parent=bash command=curl -s --connect-timeout 2 https://example.com container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512692091952587,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "curl -s --connect-timeout 2 https://example.com",
+                                             "proc.exepath":  "/usr/bin/curl",
+                                             "proc.name":  "curl",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-001 Outbound connection",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:32.091952587Z"
+                   }
+               ]
+}

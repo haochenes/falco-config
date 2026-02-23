@@ -2,8 +2,12 @@
 # SYS-LOG-002: Unexpected disabling or redirection of audit logs
 # Document: System-Level IDPS Detection Test Cases For Embedded Linux v1.1
 # Category 7: Log & Audit Integrity
+# Use --execute to trigger real auditctl -D and rollback (for IDPS detection)
 
 set -e
+
+EXECUTE_MODE=false
+[[ "$1" = "--execute" || "$1" = "-x" ]] && EXECUTE_MODE=true
 
 echo "=========================================="
 echo "SYS-LOG-002: Audit rule changes"
@@ -33,9 +37,22 @@ echo ">>> Executing: auditctl commands (list/delete rules)"
 echo ""
 
 if command -v auditctl &>/dev/null; then
-    sudo auditctl -l 2>/dev/null || true
-    # -D deletes all rules - only simulate in dry-run or skip
-    echo "Note: auditctl -D would delete rules; not executing to avoid breaking audit."
+    if $EXECUTE_MODE; then
+        BACKUP="/tmp/audit_backup_sys_log_002_$$"
+        trap 'sudo auditctl -R "$BACKUP" 2>/dev/null; rm -f "$BACKUP"; exit' INT TERM EXIT
+        sudo auditctl -l > "$BACKUP" 2>/dev/null || true
+        echo "Backup: $BACKUP"
+        echo "Running: auditctl -D (delete all rules)"
+        sudo auditctl -D 2>/dev/null || true
+        sleep 2
+        echo "Restoring rules from backup..."
+        sudo auditctl -R "$BACKUP" 2>/dev/null || true
+        rm -f "$BACKUP"
+        trap - INT TERM EXIT
+    else
+        sudo auditctl -l 2>/dev/null || true
+        echo "Note: Use --execute or -x to run auditctl -D with rollback."
+    fi
 else
     echo "auditctl not available on this system."
 fi

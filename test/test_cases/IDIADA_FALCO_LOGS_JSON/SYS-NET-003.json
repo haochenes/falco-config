@@ -1,0 +1,62 @@
+﻿{
+    "case_id":  "SYS-NET-003",
+    "event_count":  2,
+    "collected":  "2026-02-19T15:51:45Z",
+    "test_script":  "SYS-NET-003.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:40.878077007: Warning IDPS SYS-NET-003 Raw socket / ping | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=python3 proc_exepath=/usr/bin/python3.10 parent=bash command=python3 -c \nimport socket\ntry:\n    s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)\n    s.close()\n    print(\u0027SOCK_RAW created (CAP_NET_RAW present)\u0027)\nexcept PermissionError:\n    print(\u0027SOCK_RAW blocked (no CAP_NET_RAW)\u0027)\nexcept Exception as e:\n    print(\u0027Error:\u0027, e)\n container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512700878077007,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "python3 -c \nimport socket\ntry:\n    s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)\n    s.close()\n    print(\u0027SOCK_RAW created (CAP_NET_RAW present)\u0027)\nexcept PermissionError:\n    print(\u0027SOCK_RAW blocked (no CAP_NET_RAW)\u0027)\nexcept Exception as e:\n    print(\u0027Error:\u0027, e)\n",
+                                             "proc.exepath":  "/usr/bin/python3.10",
+                                             "proc.name":  "python3",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-003 Raw socket or ping",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:40.878077007Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:40.923086203: Warning IDPS SYS-NET-003 Raw socket / ping | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=ping proc_exepath=/usr/bin/ping parent=bash command=ping -c 1 127.0.0.1 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512700923086203,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "ping -c 1 127.0.0.1",
+                                             "proc.exepath":  "/usr/bin/ping",
+                                             "proc.name":  "ping",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-003 Raw socket or ping",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:40.923086203Z"
+                   }
+               ]
+}

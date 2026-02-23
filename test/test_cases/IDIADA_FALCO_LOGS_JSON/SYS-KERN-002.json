@@ -1,0 +1,1986 @@
+﻿{
+    "case_id":  "SYS-KERN-002",
+    "event_count":  70,
+    "collected":  "2026-02-19T15:51:15Z",
+    "test_script":  "SYS-KERN-002.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.225984995: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/localedef.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670225984995,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/localedef.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.225984995Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.227580535: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/pldd.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670227580535,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/pldd.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.227580535Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.227753642: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/tzselect.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670227753642,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/tzselect.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.227753642Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.227878204: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/zdump.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670227878204,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/zdump.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.227878204Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.230450879: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/iconvconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670230450879,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/iconvconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.230450879Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.230585102: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670230585102,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.230585102Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.230635525: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.real.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670230635525,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.real.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.230635525Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.236458577: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/zic.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670236458577,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/zic.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.236458577Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238865990: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/bindresvport.blacklist.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238865990,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/bindresvport.blacklist.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238865990Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238868832: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/gai.conf.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238868832,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/gai.conf.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238868832Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238870932: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/ld.so.conf.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238870932,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/ld.so.conf.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238870932Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238873845: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/ld.so.conf.d/libc.conf.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238873845,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/ld.so.conf.d/libc.conf.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238873845Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238875977: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/getconf.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238875977,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/getconf.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238875977Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238878438: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/getent.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238878438,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/getent.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238878438Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238880696: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/iconv.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238880696,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/iconv.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238880696Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238883061: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/ldd.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238883061,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/ldd.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238883061Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238885762: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/locale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238885762,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/locale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238885762Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238888175: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/localedef.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238888175,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/localedef.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238888175Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238890343: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/pldd.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238890343,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/pldd.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238890343Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238892327: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/tzselect.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238892327,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/tzselect.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238892327Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238894553: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/zdump.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238894553,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/zdump.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238894553Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238926343: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/iconvconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238926343,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/iconvconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238926343Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238928702: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238928702,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238928702Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238930467: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.real.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238930467,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.real.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238930467Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238932363: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/zic.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238932363,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/zic.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238932363Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.238944364: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/getconf.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670238944364,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/getconf.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.238944364Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.240622148: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/getent.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670240622148,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/getent.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.240622148Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.240873624: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/iconv.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670240873624,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/iconv.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.240873624Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.241069994: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/ldd.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670241069994,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/ldd.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.241069994Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.241260269: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/locale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670241260269,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/locale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.241260269Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.241538764: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/localedef.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670241538764,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/localedef.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.241538764Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.241725223: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/pldd.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670241725223,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/pldd.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.241725223Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.241916062: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/tzselect.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670241916062,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/tzselect.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.241916062Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.242117766: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/bin/zdump.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670242117766,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/bin/zdump.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.242117766Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.245897270: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/iconvconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670245897270,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/iconvconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.245897270Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.246111445: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670246111445,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.246111445Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.246419553: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/ldconfig.real.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670246419553,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/ldconfig.real.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.246419553Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.246692837: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/zic.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670246692837,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/zic.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/libc-bin_2.39-0ubuntu8.7_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.246692837Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.361136089: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/ld.so.cache~ evt_type=openat user=root user_uid=0 process=ldconfig.real proc_exepath=/usr/sbin/ldconfig.real parent=libc-bin.postin command=ldconfig.real -r / container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670361136089,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/ld.so.cache~",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "ldconfig.real -r /",
+                                             "proc.exepath":  "/usr/sbin/ldconfig.real",
+                                             "proc.name":  "ldconfig.real",
+                                             "proc.pname":  "libc-bin.postin",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.361136089Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.461411865: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/locale.alias.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670461411865,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/locale.alias.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.461411865Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.461770103: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/locale-gen.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670461770103,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/locale-gen.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.461770103Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.461894725: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/update-locale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670461894725,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/update-locale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.461894725Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.462014252: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/validlocale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670462014252,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/validlocale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.462014252Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.582523521: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/locale.alias.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670582523521,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/locale.alias.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.582523521Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.582526836: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/locale-gen.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670582526836,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/locale-gen.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.582526836Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.582529559: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/update-locale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670582529559,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/update-locale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.582529559Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.582531938: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/validlocale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670582531938,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/validlocale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.582531938Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.584610565: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/locale-gen.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670584610565,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/locale-gen.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.584610565Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.588305047: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/update-locale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670588305047,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/update-locale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.588305047Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.588551932: Warning IDPS SYS-FILE-002 Write to system binary directory | file=/usr/sbin/validlocale.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670588551932,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/usr/sbin/validlocale.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/locales_2.39-0ubuntu8.7_all.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-002 Write below binary dir",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.588551932Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:10.853998998: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/sedYN2uMe evt_type=openat user=root user_uid=0 process=sed proc_exepath=/usr/bin/sed parent=locales.postins command=sed -i -e s/^ *[a-zA-Z]/# \u0026/ /etc/locale.gen container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512670853998998,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/sedYN2uMe",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sed -i -e s/^ *[a-zA-Z]/# \u0026/ /etc/locale.gen",
+                                             "proc.exepath":  "/usr/bin/sed",
+                                             "proc.name":  "sed",
+                                             "proc.pname":  "locales.postins",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:10.853998998Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.101961247: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 3 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671101961247,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 3",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:11.101961247Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.102650096: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 0.5 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671102650096,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 0.5",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:11.102650096Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.282676304: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/sedwAvqvx evt_type=openat user=root user_uid=0 process=sed proc_exepath=/usr/bin/sed parent=locales.postins command=sed -i -e 0,/^[# ]* *$/ s/^[# ]* *$// /etc/locale.gen container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512671282676304,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/sedwAvqvx",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sed -i -e 0,/^[# ]* *$/ s/^[# ]* *$// /etc/locale.gen",
+                                             "proc.exepath":  "/usr/bin/sed",
+                                             "proc.name":  "sed",
+                                             "proc.pname":  "locales.postins",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:11.282676304Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.605739409: Warning IDPS SYS-RES-003 Mass process spawn | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=sleep proc_exepath=/usr/bin/sleep parent=bash command=sleep 1 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671605739409,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sleep 1",
+                                             "proc.exepath":  "/usr/bin/sleep",
+                                             "proc.name":  "sleep",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-RES-003 Mass process spawn",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:11.605739409Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.606501698: Warning Detected ptrace PTRACE_ATTACH attempt | proc_pcmdline=bash SYS-KERN-002.sh evt_type=ptrace user=\u003cNA\u003e user_uid=1000 user_loginuid=-1 process=strace proc_exepath=/usr/bin/strace parent=bash command=strace -p 1892 -e trace=none terminal=0 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671606501698,
+                                             "evt.type":  "ptrace",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "strace -p 1892 -e trace=none",
+                                             "proc.exepath":  "/usr/bin/strace",
+                                             "proc.name":  "strace",
+                                             "proc.pcmdline":  "bash SYS-KERN-002.sh",
+                                             "proc.pname":  "bash",
+                                             "proc.tty":  0,
+                                             "user.loginuid":  -1,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "PTRACE attached to process",
+                       "source":  "syscall",
+                       "tags":  [
+                                    "T1055.008",
+                                    "container",
+                                    "host",
+                                    "maturity_stable",
+                                    "mitre_privilege_escalation",
+                                    "process"
+                                ],
+                       "time":  "2026-02-19T14:51:11.606501698Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.606734170: Notice Detected potential PTRACE_TRACEME anti-debug attempt | proc_pcmdline=strace -p 1892 -e trace=none evt_type=ptrace user=\u003cNA\u003e user_uid=1000 user_loginuid=-1 process=strace proc_exepath=/usr/bin/strace parent=strace command=strace -p 1892 -e trace=none terminal=0 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671606734170,
+                                             "evt.type":  "ptrace",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "strace -p 1892 -e trace=none",
+                                             "proc.exepath":  "/usr/bin/strace",
+                                             "proc.name":  "strace",
+                                             "proc.pcmdline":  "strace -p 1892 -e trace=none",
+                                             "proc.pname":  "strace",
+                                             "proc.tty":  0,
+                                             "user.loginuid":  -1,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "PTRACE anti-debug attempt",
+                       "source":  "syscall",
+                       "tags":  [
+                                    "T1622",
+                                    "container",
+                                    "host",
+                                    "maturity_stable",
+                                    "mitre_defense_evasion",
+                                    "process"
+                                ],
+                       "time":  "2026-02-19T14:51:11.606734170Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:11.607088101: Warning Detected ptrace PTRACE_ATTACH attempt | proc_pcmdline=bash SYS-KERN-002.sh evt_type=ptrace user=\u003cNA\u003e user_uid=1000 user_loginuid=-1 process=strace proc_exepath=/usr/bin/strace parent=bash command=strace -p 1892 -e trace=none terminal=0 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512671607088101,
+                                             "evt.type":  "ptrace",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "strace -p 1892 -e trace=none",
+                                             "proc.exepath":  "/usr/bin/strace",
+                                             "proc.name":  "strace",
+                                             "proc.pcmdline":  "bash SYS-KERN-002.sh",
+                                             "proc.pname":  "bash",
+                                             "proc.tty":  0,
+                                             "user.loginuid":  -1,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "PTRACE attached to process",
+                       "source":  "syscall",
+                       "tags":  [
+                                    "T1055.008",
+                                    "container",
+                                    "host",
+                                    "maturity_stable",
+                                    "mitre_privilege_escalation",
+                                    "process"
+                                ],
+                       "time":  "2026-02-19T14:51:11.607088101Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:12.607897440: Warning IDPS SYS-LOG-003 Kill signal sent | evt_type=kill target_pid=\u003cNA\u003e user=\u003cNA\u003e user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=\u003cNA\u003e command=bash SYS-KERN-002.sh container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.arg.pid":  "\u003cNA\u003e",
+                                             "evt.time":  1771512672607897440,
+                                             "evt.type":  "kill",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "bash SYS-KERN-002.sh",
+                                             "proc.exepath":  "/usr/bin/bash",
+                                             "proc.name":  "bash",
+                                             "proc.pname":  null,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-LOG-003 Kill signal",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:12.607897440Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:12.607990845: Warning IDPS SYS-LOG-003 Kill signal sent | evt_type=kill target_pid=1892 user=\u003cNA\u003e user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=\u003cNA\u003e command=bash SYS-KERN-002.sh container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.arg.pid":  "1892",
+                                             "evt.time":  1771512672607990845,
+                                             "evt.type":  "kill",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "bash SYS-KERN-002.sh",
+                                             "proc.exepath":  "/usr/bin/bash",
+                                             "proc.name":  "bash",
+                                             "proc.pname":  null,
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-LOG-003 Kill signal",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:12.607990845Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:12.628756902: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/ld.so.cache~ evt_type=openat user=root user_uid=0 process=ldconfig.real proc_exepath=/usr/sbin/ldconfig.real parent=libc-bin.postin command=ldconfig.real -r / container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512672628756902,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/ld.so.cache~",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "ldconfig.real -r /",
+                                             "proc.exepath":  "/usr/sbin/ldconfig.real",
+                                             "proc.name":  "ldconfig.real",
+                                             "proc.pname":  "libc-bin.postin",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:12.628756902Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466159864: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/accessibility.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466159864,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/accessibility.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466159864Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466282846: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jfr/default.jfc.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466282846,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jfr/default.jfc.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466282846Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466454319: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jfr/profile.jfc.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466454319,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jfr/profile.jfc.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466454319Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466582361: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jvm-amd64.cfg.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466582361,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jvm-amd64.cfg.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466582361Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466614475: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/logging.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466614475,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/logging.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466614475Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466666209: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/management/jmxremote.access.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466666209,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/management/jmxremote.access.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466666209Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466723959: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/management/management.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466723959,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/management/management.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466723959Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466821395: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/net.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466821395,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/net.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466821395Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.466908950: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/psfont.properties.ja.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674466908950,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/psfont.properties.ja.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.466908950Z"
+                   }
+               ]
+}

@@ -1,6 +1,6 @@
-# IDIADA Compliance - Real Falco Detection Log
+﻿# IDIADA Compliance - Real Falco Detection Log
 # Case: SYS-CONT-003
-# Collected: 2026-02-05T11:57:03
+# Collected: 2026-02-19T15:50:54Z
 # Test script: SYS-CONT-003.sh
 # ----------------------------------------
-15:09:47.264091998: Warning IDPS SYS-CONT Docker container run | evt_type=execve user=<NA> user_uid=1000 process=docker proc_exepath=/usr/bin/docker parent=bash command=docker run --rm -v /etc:/host-etc alpine ls /host-etc container_id=091f20f8d4bf container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>
+{"hostname":"docker-desktop","output":"14:50:50.752921679: Warning IDPS SYS-CONT Docker container run | evt_type=execve user=<NA> user_uid=1000 process=docker proc_exepath=/usr/bin/docker parent=bash command=docker run --rm -v /etc:/host-etc alpine ls /host-etc container_id=6accfd003649 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"6accfd003649","container.image.repository":null,"container.image.tag":null,"container.name":null,"evt.time":1771512650752921679,"evt.type":"execve","k8s.ns.name":null,"k8s.pod.name":null,"proc.cmdline":"docker run --rm -v /etc:/host-etc alpine ls /host-etc","proc.exepath":"/usr/bin/docker","proc.name":"docker","proc.pname":"bash","user.name":"<NA>","user.uid":1000},"priority":"Warning","rule":"IDPS SYS-CONT Docker container run","source":"syscall","tags":[],"time":"2026-02-19T14:50:50.752921679Z"}

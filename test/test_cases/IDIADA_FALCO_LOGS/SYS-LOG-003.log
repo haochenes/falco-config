@@ -1,7 +1,6 @@
-# IDIADA Compliance - Real Falco Detection Log
+﻿# IDIADA Compliance - Real Falco Detection Log
 # Case: SYS-LOG-003
-# Collected: 2026-02-09T09:02:15
+# Collected: 2026-02-19T15:51:33Z
 # Test script: SYS-LOG-003.sh
 # ----------------------------------------
-
-15:12:11.354472591: Warning IDPS SYS-LOG-003 Kill signal sent | evt_type=kill target_pid=bash user=<NA> user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=<NA> command=bash SYS-LOG-003.sh container_id=091f20f8d4bf container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>
+{"hostname":"docker-desktop","output":"14:51:29.145408512: Warning IDPS SYS-LOG-003 Kill signal sent | evt_type=kill target_pid=bash user=<NA> user_uid=1000 process=bash proc_exepath=/usr/bin/bash parent=<NA> command=bash SYS-LOG-003.sh container_id=6accfd003649 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"6accfd003649","container.image.repository":null,"container.image.tag":null,"container.name":null,"evt.arg.pid":"bash","evt.time":1771512689145408512,"evt.type":"kill","k8s.ns.name":null,"k8s.pod.name":null,"proc.cmdline":"bash SYS-LOG-003.sh","proc.exepath":"/usr/bin/bash","proc.name":"bash","proc.pname":null,"user.name":"<NA>","user.uid":1000},"priority":"Warning","rule":"IDPS SYS-LOG-003 Kill signal","source":"syscall","tags":[],"time":"2026-02-19T14:51:29.145408512Z"}

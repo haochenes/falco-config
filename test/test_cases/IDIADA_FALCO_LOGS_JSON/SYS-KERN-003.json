@@ -1,0 +1,985 @@
+﻿{
+    "case_id":  "SYS-KERN-003",
+    "event_count":  35,
+    "collected":  "2026-02-19T15:51:19Z",
+    "test_script":  "SYS-KERN-003.sh",
+    "events":  [
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.467877633: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/default_US_export.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674467877633,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/default_US_export.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.467877633Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.467931658: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/default_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674467931658,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/default_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.467931658Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.467986109: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/exempt_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674467986109,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/exempt_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.467986109Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.468050579: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/unlimited/default_US_export.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674468050579,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/unlimited/default_US_export.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.468050579Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.468110755: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/unlimited/default_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674468110755,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/unlimited/default_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.468110755Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.468169728: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/public_suffix_list.dat.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674468169728,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/public_suffix_list.dat.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.468169728Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.469108415: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/sound.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674469108415,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/sound.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.469108415Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:14.469179947: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/swing.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512674469179947,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/swing.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:14.469179947Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453312199: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/accessibility.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453312199,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/accessibility.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453312199Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453317600: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jfr/default.jfc.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453317600,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jfr/default.jfc.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453317600Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453321322: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jfr/profile.jfc.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453321322,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jfr/profile.jfc.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453321322Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453324604: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/jvm-amd64.cfg.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453324604,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/jvm-amd64.cfg.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453324604Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453328123: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/logging.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453328123,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/logging.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453328123Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453332017: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/management/jmxremote.access.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453332017,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/management/jmxremote.access.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453332017Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453335436: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/management/management.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453335436,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/management/management.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453335436Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453338964: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/net.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453338964,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/net.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453338964Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453342517: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/psfont.properties.ja.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453342517,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/psfont.properties.ja.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453342517Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453345737: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/psfontj2d.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453345737,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/psfontj2d.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453345737Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453349565: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/blocked.certs.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453349565,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/blocked.certs.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453349565Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453353327: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/default.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453353327,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/default.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453353327Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453356682: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/java.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453356682,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/java.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453356682Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453359951: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/java.security.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453359951,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/java.security.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453359951Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453363533: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/nss.cfg.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453363533,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/nss.cfg.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453363533Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453367534: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/README.txt.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453367534,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/README.txt.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453367534Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453371875: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/default_US_export.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453371875,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/default_US_export.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453371875Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453374987: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/default_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453374987,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/default_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453374987Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453378736: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/limited/exempt_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453378736,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/limited/exempt_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453378736Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453383572: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/unlimited/default_US_export.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453383572,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/unlimited/default_US_export.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453383572Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453387411: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/policy/unlimited/default_local.policy.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453387411,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/policy/unlimited/default_local.policy.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453387411Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453391109: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/security/public_suffix_list.dat.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453391109,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/security/public_suffix_list.dat.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453391109Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453394496: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/sound.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453394496,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/sound.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453394496Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.453397658: Warning IDPS SYS-FILE-001 Write to /etc | file=/etc/java-17-openjdk/swing.properties.dpkg-new evt_type=openat user=root user_uid=0 process=dpkg proc_exepath=/usr/bin/dpkg parent=unattended-upgr command=dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb container_id=host container_name=host container_image_repository= container_image_tag= k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "host",
+                                             "container.image.repository":  "",
+                                             "container.image.tag":  "",
+                                             "container.name":  "host",
+                                             "evt.time":  1771512675453397658,
+                                             "evt.type":  "openat",
+                                             "fd.name":  "/etc/java-17-openjdk/swing.properties.dpkg-new",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "dpkg --status-fd 11 --no-triggers --unpack --auto-deconfigure /var/cache/apt/archives/openjdk-17-jdk_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jdk-headless_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre_17.0.18+8-1~24.04.1_amd64.deb /var/cache/apt/archives/openjdk-17-jre-headless_17.0.18+8-1~24.04.1_amd64.deb",
+                                             "proc.exepath":  "/usr/bin/dpkg",
+                                             "proc.name":  "dpkg",
+                                             "proc.pname":  "unattended-upgr",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-FILE-001 Write below etc",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.453397658Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.484788194: Warning IDPS SYS-NET-003 Raw socket / ping | evt_type=execve user=\u003cNA\u003e user_uid=1000 process=ping proc_exepath=/usr/bin/ping parent=bash command=ping -c 1 127.0.0.1 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512675484788194,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "ping -c 1 127.0.0.1",
+                                             "proc.exepath":  "/usr/bin/ping",
+                                             "proc.name":  "ping",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "\u003cNA\u003e",
+                                             "user.uid":  1000
+                                         },
+                       "priority":  "Warning",
+                       "rule":  "IDPS SYS-NET-003 Raw socket or ping",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.484788194Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.501287928: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=sudo proc_exepath=/usr/bin/sudo parent=bash command=sudo setcap cap_net_raw+ep /tmp/cap_test_1771512680 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512675501287928,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sudo setcap cap_net_raw+ep /tmp/cap_test_1771512680",
+                                             "proc.exepath":  "/usr/bin/sudo",
+                                             "proc.name":  "sudo",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.501287928Z"
+                   },
+                   {
+                       "hostname":  "docker-desktop",
+                       "output":  "14:51:15.516725229: Notice IDPS SYS-PROC-004 Privilege escalation attempt | evt_type=execve user=root user_uid=0 process=sudo proc_exepath=/usr/bin/sudo parent=bash command=sudo setcap -r /tmp/cap_test_1771512680 container_id=6accfd003649 container_name=\u003cNA\u003e container_image_repository=\u003cNA\u003e container_image_tag=\u003cNA\u003e k8s_pod_name=\u003cNA\u003e k8s_ns_name=\u003cNA\u003e",
+                       "output_fields":  {
+                                             "container.id":  "6accfd003649",
+                                             "container.image.repository":  null,
+                                             "container.image.tag":  null,
+                                             "container.name":  null,
+                                             "evt.time":  1771512675516725229,
+                                             "evt.type":  "execve",
+                                             "k8s.ns.name":  null,
+                                             "k8s.pod.name":  null,
+                                             "proc.cmdline":  "sudo setcap -r /tmp/cap_test_1771512680",
+                                             "proc.exepath":  "/usr/bin/sudo",
+                                             "proc.name":  "sudo",
+                                             "proc.pname":  "bash",
+                                             "user.name":  "root",
+                                             "user.uid":  0
+                                         },
+                       "priority":  "Notice",
+                       "rule":  "IDPS SYS-PROC-004 Privilege escalation",
+                       "source":  "syscall",
+                       "tags":  [
+
+                                ],
+                       "time":  "2026-02-19T14:51:15.516725229Z"
+                   }
+               ]
+}
