@@ -34,15 +34,20 @@ cd board_test
 # 启动 Falco 并跑全部测试
 ./run_tests_remote.sh --start-falco all
 
-# 或只跑 IDPS
-./run_tests_remote.sh --start-falco idps
+# 跑嵌入式 cases（推荐：board_test/test_cases，含 Falco 运行检测）
+./run_tests_remote.sh cases
+
+# 或只跑 IDPS（test/test_cases 的 SYS-*.sh，需 Docker 的用例在板子上会跳过）
+./run_tests_remote.sh idps
 ```
+
+**说明**：`cases` 模式现在跑的是 **board_test/test_cases** 下的嵌入式用例（`run_all_embedded_cases.sh` + SYS-*.sh），使用 `check_falco_embedded` 检测 Falco 是否运行，避免“Falco 已运行但脚本误报未运行”的问题；不再依赖 Docker，适合板端。
 
 ---
 
 ## 问题与解决方案
 
-_（下面按时间顺序记录：现象 → 原因 → 解决/待办）_
+_（下面按时间顺序记录：现象 → 原因 → 解决/待办。同事可按问题 1～9 及文末「falco.ko 从编译到加载」流程复现与排错。）_
 
 ---
 
@@ -180,6 +185,138 @@ _（下面按时间顺序记录：现象 → 原因 → 解决/待办）_
 - **已可产出 aarch64 二进制**：在 `build.cfg` 中设 `BUILD_MODERN_BPF=OFF`、`MINIMAL_BUILD=ON`，执行 `./build_falco.sh all` 可得到 `install/bin/falco`（ELF aarch64，约 5.6MB stripped）。板端可用 `engine.kind: kmod`（需单独编 falco.ko）或 `nodriver` 做基础验证。  
 - **OpenSSL 交叉编译**：已通过 patch 使用 OpenSSL `Configure linux-aarch64 --cross-compile-prefix=...`，并在配置时用 `env -u CC -u AR ...` 避免与 toolchain 的 CC 冲突。  
 - **Modern eBPF 交叉编译**：`BUILD_MODERN_BPF=ON` 时构建会依赖主机工具 `events_dimensions_generator` 等（falcosecurity-libs 内）。若报错 `events_dimensions_generator: not found`，可暂时设 `BUILD_MODERN_BPF=OFF` 先产出二进制，或等待/贡献 falcosecurity-libs 对交叉编译时 host 工具路径的修复。
+
+---
+
+### 问题 7：falco.ko 随部署一起拷到板子并在启动时加载
+
+**现象**  
+使用 `engine.kind: kmod` 时，需要把 falco.ko 拷到板子并执行 `insmod`，希望部署脚本一次完成。
+
+**解决**  
+- 在 `deploy_to_board.sh` 中增加对 **falco.ko** 的显式拷贝：若存在 `cross_compile/install/share/falco/falco.ko`，则 scp 到板子 `BOARD_FALCO_SHARE_DIR`（默认 `/usr/share/falco/falco.ko`），并打日志。  
+- `services/falco-start.sh` 已支持：启动前从 `/usr/share/falco/falco.ko`（或 `/lib/modules/$(uname -r)/extra/falco.ko`、`/opt/falco-test/falco.ko`）自动 `insmod`。  
+- 编 falco.ko：在 `cross_compile/build.cfg` 中设 `BUILD_KMOD=ON`、`LINUX_KERNEL_SRC` 指向**与板子运行内核一致**的源码树，执行 `./build_falco.sh all` 或 `./build_falco.sh kmod`，产物在 `install/share/falco/falco.ko`。
+
+---
+
+### 问题 8：insmod falco.ko 报 Invalid module format（version magic 不匹配）
+
+**现象**  
+板端执行 `insmod /usr/share/falco/falco.ko` 报错：  
+`version magic '6.1.119 SMP preempt mod_unload aarch64' should be '6.1.80-ti-g2e423244f8c0 SMP preempt mod_unload aarch64'`  
+`insmod: ERROR: could not insert module falco.ko: Invalid module format`
+
+**原因**  
+内核模块必须针对**板子当前运行的内核版本**（含 version magic 字串）编译。falco.ko 是用 6.1.119 的内核树编的，而板子运行的是 6.1.80-ti-g2e423244f8c0，二者不一致，内核拒绝加载。
+
+**解决**  
+二选一：  
+1. **用板子内核编 falco.ko**：将 `LINUX_KERNEL_SRC` 指向会编出 **6.1.80-ti-g2e423244f8c0** 的内核源码（如 TI J721E SDK 对应内核），在该树内执行 `make modules_prepare` 或完整编内核后，再执行 `./build_falco.sh kmod`，得到与板子 version magic 一致的 falco.ko。  
+2. **统一内核版本**：重新烧录板子，使板子运行的内核与当前编 falco.ko 用的内核版本一致（例如都改为 6.1.119），再部署并 insmod。
+
+---
+
+### 问题 9：insmod falco.ko 报 Unknown symbol（tracepoint_probe_register 等）
+
+**现象**  
+version magic 已一致、能开始加载，但报：  
+`falco: Unknown symbol tracepoint_probe_unregister (err -2)`  
+`falco: Unknown symbol for_each_kernel_tracepoint (err -2)`  
+`falco: Unknown symbol tracepoint_probe_register (err -2)`  
+`insmod: ERROR: could not insert module falco.ko: Unknown symbol in module`
+
+**原因**  
+这些符号来自内核的 **tracepoint 机制**（`kernel/tracepoint.c` 等），只有在内核配置中打开 **CONFIG_TRACEPOINTS**（及 **CONFIG_TRACING**）时才会编进内核并导出。板子上 `zcat /proc/config.gz | grep -E 'TRACEPOINT|TRACING'` 若只有 `CONFIG_HAVE_SYSCALL_TRACEPOINTS=y`、`CONFIG_TRACING_SUPPORT=y`，而**没有** `CONFIG_TRACEPOINTS=y` 和 `CONFIG_TRACING=y`，则这些符号不存在，insmod 会报 Unknown symbol。  
+falco.ko 的 license 为 **Dual MIT/GPL**，可正常使用 GPL 导出的符号，问题不在 license。
+
+**解决**  
+在**烧录到板子的那份内核**的源码树中，打开 tracepoint/tracing 并重新编内核、烧录：  
+- 在 `.config` 中设置 `CONFIG_TRACEPOINTS=y`、`CONFIG_TRACING=y`（若为 `=n` 或 `# CONFIG_TRACEPOINTS is not set` 则改为 `=y`）。  
+- 执行 `make olddefconfig` 补全依赖，再按现有流程编内核并烧录板子。  
+- 板子用新内核启动后，再执行 `insmod /usr/share/falco/falco.ko` 即可。
+
+**验证**  
+板子上执行：  
+`zcat /proc/config.gz | grep -E 'CONFIG_TRACEPOINTS|CONFIG_TRACING'`  
+应能看到 `CONFIG_TRACEPOINTS=y` 和 `CONFIG_TRACING=y`。
+
+---
+
+### falco.ko 从编译到加载（流程小结，供同事参考）
+
+1. **编 falco.ko**  
+   - 内核树：与板子 `uname -r` **完全一致**（如 6.1.80-ti-g2e423244f8c0 或你烧录的 6.1.119）。  
+   - 内核配置：至少 **CONFIG_TRACEPOINTS=y**、**CONFIG_TRACING=y**（否则 insmod 会报 Unknown symbol）。  
+   - `cross_compile/build.cfg`：`BUILD_KMOD=ON`，`LINUX_KERNEL_SRC` 指向上述内核树；内核树内先 `make ARCH=arm64 CROSS_COMPILE=... olddefconfig` 与 `make ... prepare`（或完整编内核）。  
+   - 执行：`cd cross_compile && ./build_falco.sh kmod`（或 `./build_falco.sh all`），得到 `install/share/falco/falco.ko`。
+
+2. **部署**  
+   - `cd board_test && ./deploy_to_board.sh`：会把 `falco.ko` 拷到板子 `/usr/share/falco/`。
+
+3. **板端加载**  
+   - 手动：`insmod /usr/share/falco/falco.ko`。  
+   - 或通过 `./run_tests_remote.sh --start-falco embedded` 等启动 Falco 时，`falco-start.sh` 会自动从 `/usr/share/falco/falco.ko` insmod。
+
+4. **若遇 Invalid module format**  
+   - 检查 falco.ko 的 vermagic（`modinfo falco.ko`）与板子 `uname -r` 是否一致；不一致则用板子内核树重新编 falco.ko 或重烧与编模块一致的内核。
+
+5. **若遇 Unknown symbol tracepoint_***  
+   - 在内核 .config 中打开 CONFIG_TRACEPOINTS=y、CONFIG_TRACING=y，重新编内核并烧录。
+
+6. **若遇 Kernel module does not support PPM_IOCTL_GET_API_VERSION**  
+   - 见下方「问题 10」。
+
+---
+
+### 问题 10：Falco 报 Kernel module does not support PPM_IOCTL_GET_API_VERSION: Invalid argument
+
+**现象**  
+Falco 能启动，但很快报错退出：  
+`An error occurred in an event source, forcing termination...`  
+`Error: Kernel module does not support PPM_IOCTL_GET_API_VERSION: Invalid argument`
+
+**原因**  
+用户态 Falco（libscap）通过 ioctl `PPM_IOCTL_GET_API_VERSION` 与内核模块协商 API 版本。报错说明**当前已加载的内核模块**与 Falco 二进制不匹配。常见情况：  
+- 板子上**已经加载了旧版** falco/scap 模块（例如上次启动残留，或来自 `/lib/modules/.../extra/`）；Falco 自动 “inject” 新模块时因“模块名已占用”而失败（“Unable to load the driver”），随后打开 `/dev/falco0` 时连上的是**旧模块**，旧模块不支持该 ioctl → Invalid argument。  
+- 即使同一次编译，若**不先卸掉旧模块**就启动 Falco，也会出现上述情况。
+
+**解决**  
+1. **启动 Falco 前必须先卸掉旧模块，再加载本次部署的 falco.ko**：  
+   ```bash
+   rmmod falco 2>/dev/null || true
+   rmmod scap 2>/dev/null || true
+   insmod /usr/share/falco/falco.ko
+   # 然后再 systemctl start falco 或 /opt/falco-test/falco-start.sh
+   ```  
+2. **使用脚本或 systemd**：  
+   - **falco-start.sh**（`/opt/falco-test/falco-start.sh`）：先 rmmod 再 insmod，然后启动 Falco。  
+   - **systemd**：`falco.service` 的 `ExecStartPre` 会执行 **`/opt/falco-test/load-falco-ko.sh`**（该脚本用 **绝对路径** `/sbin/rmmod`、`/sbin/insmod` 和 `/usr/share/falco/falco.ko`，避免 systemd 环境下 PATH 导致 insmod 找不到而失败）。部署会把 `load-falco-ko.sh` 和 `falco.service` 放到 `/opt/falco-test/`；需把 `falco.service` 拷到 `/etc/systemd/system/` 并 `systemctl daemon-reload` 后，**直接 `systemctl start falco` 即可，无需手动先 insmod**。  
+3. **保证同一套构建**：falco.ko 与 Falco 二进制需来自同一次 `./build_falco.sh all`；部署用 `./deploy_to_board.sh` 把 `install/share/falco/falco.ko` 拷到板子 `/usr/share/falco/`。  
+4. 若仍报错：主机完整重编并部署后，板端**先** `rmmod falco; insmod /usr/share/falco/falco.ko`，再启动 Falco。
+
+**验证**  
+板子上执行：  
+`lsmod | grep falco` 应能看到 falco；且该模块应来自本次部署的 `/usr/share/falco/falco.ko`（无其他路径的旧 ko 被优先加载）。
+
+**若仍报 PPM_IOCTL_GET_API_VERSION（已确认同一次编译、且已先 rmmod 再 insmod）**  
+可能原因与对应措施：  
+
+1. **板子实际加载的不是我们部署的 ko**  
+   - 在板子上执行：`rmmod falco 2>/dev/null; rmmod scap 2>/dev/null; /sbin/insmod /usr/share/falco/falco.ko`，然后**不要**再执行其他会加载模块的操作，直接 `systemctl start falco`。若仍报错，继续下一条。  
+
+2. **驱动与用户态 API 不一致（构建缓存/不同 libs）**  
+   - 主机上**完全清空后重编**，确保 falco.ko 与 Falco 二进制来自同一份 falcosecurity-libs：  
+     `cd cross_compile && ./build_falco.sh clean && ./build_falco.sh all`  
+   - 再部署到板子，板端先 `rmmod falco; insmod /usr/share/falco/falco.ko`，再 `systemctl start falco`。  
+
+3. **临时验证 Falco 能否启动（不采集 syscall）**  
+   - 使用 **nodriver** 引擎，不依赖内核模块。部署后板上有 `/opt/falco-test/falco.nodriver.board.yaml`，在板子上执行：  
+     ```bash
+     cp /opt/falco-test/falco.nodriver.board.yaml /etc/falco/config.d/falco.container_plugin.board.yaml
+     systemctl restart falco
+     ```  
+   - 若用 nodriver 后 Falco 能正常启动，说明问题在 **kmod 与当前内核/架构的兼容性**；可考虑改用 **modern eBPF**（主机 `BUILD_MODERN_BPF=ON` 且板端内核支持 BTF），或向 Falco/libs 反馈 kmod 在 ARM64/该内核上的兼容性问题。恢复 kmod 时把原来的 config.d 再拷回即可。
 
 ---
 

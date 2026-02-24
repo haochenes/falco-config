@@ -11,14 +11,23 @@ if [ ! -x "$FALCO" ]; then
     exit 1
 fi
 
-# Kill existing falco
+# Kill existing falco process
 pkill -x falco 2>/dev/null || true
 sleep 1
 
-# Load falco kernel module if present (required for syscall capture when using engine kind kmod)
-for f in /usr/share/falco/falco.ko /lib/modules/$(uname -r)/extra/falco.ko /opt/falco-test/falco.ko; do
-    [ -f "$f" ] && insmod "$f" 2>/dev/null && echo "Loaded $f" && break
-done
+# Unload any existing falco/scap kernel module so we load the one we deployed (avoids PPM_IOCTL_GET_API_VERSION mismatch)
+rmmod falco 2>/dev/null || true
+rmmod scap 2>/dev/null || true
+sleep 1
+
+# Load our falco.ko (must match the Falco binary from the same build). Prefer deployed path.
+if [ -f /usr/share/falco/falco.ko ]; then
+    insmod /usr/share/falco/falco.ko 2>/dev/null && echo "Loaded /usr/share/falco/falco.ko" || true
+elif [ -f "/lib/modules/$(uname -r)/extra/falco.ko" ]; then
+    insmod "/lib/modules/$(uname -r)/extra/falco.ko" 2>/dev/null && echo "Loaded extra/falco.ko" || true
+elif [ -f /opt/falco-test/falco.ko ]; then
+    insmod /opt/falco-test/falco.ko 2>/dev/null && echo "Loaded /opt/falco-test/falco.ko" || true
+fi
 
 echo "Starting Falco in background, log: $LOG"
 nohup "$FALCO" -c "$CONFIG" >> "$LOG" 2>&1 &

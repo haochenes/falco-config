@@ -1,0 +1,12 @@
+# Board: use nodriver engine (no kernel module / no syscall capture).
+# Use this to verify Falco starts when kmod fails with PPM_IOCTL_GET_API_VERSION.
+# With nodriver, Falco will not capture live syscalls; useful for config/rules check only.
+load_plugins: [container]
+engine:
+  kind: nodriver
+plugins:
+  - name: container
+    library_path: /usr/share/falco/plugins/libcontainer.so
+    init_config:
+      label_max_len: 100
+      with_size: false

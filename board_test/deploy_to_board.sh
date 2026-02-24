@@ -101,12 +101,26 @@ deploy_falco() {
         if [[ "$HAS_AARCH64_CONTAINER" -eq 1 ]]; then
             "${SSH_CMD[@]}" "${TARGET}" "rm -f ${BOARD_FALCO_ETC_DIR}/config.d/falco.container_plugin.yaml ${BOARD_FALCO_ETC_DIR}/config.d/falco.embedded.board.yaml"
             [[ -f "${SCRIPT_DIR}/config/falco.container_plugin.board.yaml" ]] && "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.container_plugin.board.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/config.d/"
+            if [[ -f "${REPO_ROOT}/falco-config/falco_rules.local.yaml" ]]; then
+                "${SCP_CMD[@]}" "${REPO_ROOT}/falco-config/falco_rules.local.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/falco_rules.local.yaml"
+                log_success "falco_rules.local.yaml (IDPS rules) deployed to ${BOARD_FALCO_ETC_DIR}"
+            fi
+            if [[ -f "${SCRIPT_DIR}/config/falco.json_output.board.yaml" ]]; then
+                "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.json_output.board.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/config.d/"
+                "${SSH_CMD[@]}" "${TARGET}" "mkdir -p /var/log/falco"
+                log_success "falco.json_output.board.yaml deployed (JSON events -> /var/log/falco/falco_events.json)"
+            fi
             log_success "Falco config deployed to ${BOARD_FALCO_ETC_DIR} (container plugin + kmod)"
         else
             "${SSH_CMD[@]}" "${TARGET}" "rm -f ${BOARD_FALCO_ETC_DIR}/config.d/falco.container_plugin.yaml ${BOARD_FALCO_ETC_DIR}/config.d/falco.container_plugin.board.yaml"
             [[ -f "${SCRIPT_DIR}/config/falco.embedded.board.yaml" ]] && "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.embedded.board.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/config.d/"
             [[ -f "${SCRIPT_DIR}/config/falco_rules_embedded.yaml" ]] && "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco_rules_embedded.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/"
             "${SSH_CMD[@]}" "${TARGET}" "sed -i 's|  - /etc/falco/falco_rules.yaml|  - /etc/falco/falco_rules_embedded.yaml|' ${BOARD_FALCO_ETC_DIR}/falco.yaml 2>/dev/null; sed -i 's|  - /etc/falco/falco_rules.local.yaml|  # - /etc/falco/falco_rules.local.yaml|' ${BOARD_FALCO_ETC_DIR}/falco.yaml 2>/dev/null || true"
+            if [[ -f "${SCRIPT_DIR}/config/falco.json_output.board.yaml" ]]; then
+                "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.json_output.board.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/config.d/"
+                "${SSH_CMD[@]}" "${TARGET}" "mkdir -p /var/log/falco"
+                log_success "falco.json_output.board.yaml deployed (JSON -> /var/log/falco/falco_events.json)"
+            fi
             log_success "Falco config deployed to ${BOARD_FALCO_ETC_DIR} (embedded: no container plugin)"
         fi
     fi
@@ -115,7 +129,13 @@ deploy_falco() {
         "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_FALCO_SHARE_DIR}"
         "${SCP_CMD[@]}" -r "${INSTALL_DIR}/share/falco/"* "${TARGET}:${BOARD_FALCO_SHARE_DIR}/" 2>/dev/null || true
         log_success "Falco share deployed to ${BOARD_FALCO_SHARE_DIR}"
-        [[ -f "${INSTALL_DIR}/share/falco/falco.ko" ]] && log_success "falco.ko deployed to ${BOARD_FALCO_SHARE_DIR}/falco.ko"
+        # Deploy falco.ko for engine.kind: kmod (explicit copy so board can insmod it)
+        if [[ -f "${INSTALL_DIR}/share/falco/falco.ko" ]]; then
+            "${SCP_CMD[@]}" "${INSTALL_DIR}/share/falco/falco.ko" "${TARGET}:${BOARD_FALCO_SHARE_DIR}/falco.ko"
+            log_success "falco.ko deployed to ${BOARD_FALCO_SHARE_DIR}/falco.ko (insmod on board for kmod engine)"
+        else
+            log_warn "falco.ko not found in ${INSTALL_DIR}/share/falco (build with BUILD_KMOD=ON to get it)"
+        fi
     fi
 
     if [[ -f "${SCRIPT_DIR}/services/falco-start.sh" ]]; then
@@ -123,6 +143,19 @@ deploy_falco() {
         "${SCP_CMD[@]}" "${SCRIPT_DIR}/services/falco-start.sh" "${TARGET}:${BOARD_TEST_DIR}/"
         "${SSH_CMD[@]}" "${TARGET}" "chmod +x ${BOARD_TEST_DIR}/falco-start.sh"
         log_success "falco-start.sh deployed to ${BOARD_TEST_DIR}/falco-start.sh"
+    fi
+    if [[ -f "${SCRIPT_DIR}/services/load-falco-ko.sh" ]]; then
+        "${SCP_CMD[@]}" "${SCRIPT_DIR}/services/load-falco-ko.sh" "${TARGET}:${BOARD_TEST_DIR}/"
+        "${SSH_CMD[@]}" "${TARGET}" "chmod +x ${BOARD_TEST_DIR}/load-falco-ko.sh"
+        log_success "load-falco-ko.sh deployed to ${BOARD_TEST_DIR}/ (used by systemd ExecStartPre)"
+    fi
+    if [[ -f "${SCRIPT_DIR}/services/falco.service" ]]; then
+        "${SCP_CMD[@]}" "${SCRIPT_DIR}/services/falco.service" "${TARGET}:${BOARD_TEST_DIR}/falco.service"
+        log_success "falco.service deployed to ${BOARD_TEST_DIR}/falco.service (copy to /etc/systemd/system/ and run systemctl daemon-reload)"
+    fi
+    if [[ -f "${SCRIPT_DIR}/config/falco.nodriver.board.yaml" ]]; then
+        "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.nodriver.board.yaml" "${TARGET}:${BOARD_TEST_DIR}/falco.nodriver.board.yaml"
+        log_success "falco.nodriver.board.yaml deployed to ${BOARD_TEST_DIR}/ (use when kmod fails with PPM_IOCTL: cp to /etc/falco/config.d/)"
     fi
 
     if [[ -d "${INSTALL_DIR}/etc/falcoctl" ]]; then
@@ -134,64 +167,63 @@ deploy_falco() {
 deploy_tests() {
     log_info "Deploying test scripts to ${BOARD_TEST_DIR} (overwrite)..."
 
-    "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_TEST_DIR}/cases ${BOARD_TEST_DIR}/idps"
+    "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_TEST_DIR}/test_cases"
 
-    if [[ -d "${TEST_CASES_DIR}" ]]; then
-        for f in "${TEST_CASES_DIR}"/*.sh; do
+    # Only board_test/test_cases (embedded SYS-*.sh, common_embedded.sh, run_all_embedded_cases.sh) — used by "cases" mode
+    if [[ -d "${BOARD_TEST_CASES_DIR}" ]]; then
+        for f in "${BOARD_TEST_CASES_DIR}"/*.sh; do
             [[ -f "$f" ]] || continue
-            "${SCP_CMD[@]}" "$f" "${TARGET}:${BOARD_TEST_DIR}/cases/"
+            "${SCP_CMD[@]}" "$f" "${TARGET}:${BOARD_TEST_DIR}/test_cases/"
         done
-        log_success "test/examples -> ${BOARD_TEST_DIR}/cases"
+        "${SSH_CMD[@]}" "${TARGET}" "chmod +x ${BOARD_TEST_DIR}/test_cases/*.sh 2>/dev/null || true"
+        log_success "board_test/test_cases -> ${BOARD_TEST_DIR}/test_cases (embedded cases for 'cases' mode)"
     else
-        log_warn "test/examples not found: ${TEST_CASES_DIR}"
-    fi
-
-    if [[ -d "${TEST_IDPS_DIR}" ]]; then
-        for f in "${TEST_IDPS_DIR}"/SYS-*.sh; do
-            [[ -f "$f" ]] || continue
-            "${SCP_CMD[@]}" "$f" "${TARGET}:${BOARD_TEST_DIR}/idps/"
-        done
-        [[ -f "${TEST_IDPS_DIR}/run_all_idps_tests.sh" ]] && "${SCP_CMD[@]}" "${TEST_IDPS_DIR}/run_all_idps_tests.sh" "${TARGET}:${BOARD_TEST_DIR}/idps/" 2>/dev/null && "${SSH_CMD[@]}" "${TARGET}" "chmod +x ${BOARD_TEST_DIR}/idps/run_all_idps_tests.sh" 2>/dev/null || true
-        [[ -f "${TEST_IDPS_DIR}/TEST_METHODS.md" ]] && "${SCP_CMD[@]}" "${TEST_IDPS_DIR}/TEST_METHODS.md" "${TARGET}:${BOARD_TEST_DIR}/idps/" 2>/dev/null || true
-        log_success "test/test_cases -> ${BOARD_TEST_DIR}/idps"
-    else
-        log_warn "test/test_cases not found: ${TEST_IDPS_DIR}"
-    fi
-
-    # Embedded-only tests (no Docker, for TDA4VM)
-    if [[ -d "${EMBEDDED_TESTS_DIR}" ]]; then
-        "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_TEST_DIR}/embedded"
-        for f in "${EMBEDDED_TESTS_DIR}"/*.sh; do
-            [[ -f "$f" ]] || continue
-            "${SCP_CMD[@]}" "$f" "${TARGET}:${BOARD_TEST_DIR}/embedded/"
-        done
-        "${SSH_CMD[@]}" "${TARGET}" "chmod +x ${BOARD_TEST_DIR}/embedded/*.sh 2>/dev/null || true"
-        log_success "embedded_tests -> ${BOARD_TEST_DIR}/embedded"
+        log_warn "board_test/test_cases not found: ${BOARD_TEST_CASES_DIR}"
     fi
 }
 
 # --- main
 load_board_cfg
-# Test script dirs (master layout: test/examples = case*.sh, test/test_cases = SYS-*.sh)
-TEST_CASES_DIR="${REPO_ROOT}/test/examples"
-TEST_IDPS_DIR="${REPO_ROOT}/test/test_cases"
+# Only board_test/test_cases is deployed (embedded SYS-*.sh, used by "cases" mode)
+BOARD_TEST_CASES_DIR="${SCRIPT_DIR}/test_cases"
 setup_ssh
 check_board
 
 DEPLOY_FALCO=1
 DEPLOY_TESTS=1
+RULES_ONLY=0
 for arg in "$@"; do
     case "$arg" in
         --falco-only)  DEPLOY_TESTS=0 ;;
         --tests-only) DEPLOY_FALCO=0 ;;
+        --rules-only) RULES_ONLY=1; DEPLOY_FALCO=0; DEPLOY_TESTS=0 ;;
         -h|--help)
-            echo "Usage: $0 [--falco-only | --tests-only]"
+            echo "Usage: $0 [--falco-only | --tests-only | --rules-only]"
             echo "  --falco-only   Deploy only Falco binary and config"
             echo "  --tests-only   Deploy only test scripts to ${BOARD_TEST_DIR}"
+            echo "  --rules-only   Deploy only falco_rules.local.yaml to ${BOARD_FALCO_ETC_DIR} (for IDPS detection)"
             exit 0
             ;;
     esac
 done
+
+if [[ "$RULES_ONLY" -eq 1 ]]; then
+    if [[ -f "${REPO_ROOT}/falco-config/falco_rules.local.yaml" ]]; then
+        "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_FALCO_ETC_DIR}"
+        "${SCP_CMD[@]}" "${REPO_ROOT}/falco-config/falco_rules.local.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/falco_rules.local.yaml"
+        log_success "falco_rules.local.yaml deployed to ${BOARD_FALCO_ETC_DIR}"
+    else
+        log_error "falco-config/falco_rules.local.yaml not found"
+        exit 1
+    fi
+    if [[ -f "${SCRIPT_DIR}/config/falco.json_output.board.yaml" ]]; then
+        "${SSH_CMD[@]}" "${TARGET}" "mkdir -p ${BOARD_FALCO_ETC_DIR}/config.d /var/log/falco"
+        "${SCP_CMD[@]}" "${SCRIPT_DIR}/config/falco.json_output.board.yaml" "${TARGET}:${BOARD_FALCO_ETC_DIR}/config.d/"
+        log_success "falco.json_output.board.yaml deployed (JSON -> /var/log/falco/falco_events.json)"
+    fi
+    log_success "Deploy (rules only) done. Restart Falco: systemctl restart falco"
+    exit 0
+fi
 
 [[ "$DEPLOY_FALCO" -eq 1 ]] && deploy_falco
 [[ "$DEPLOY_TESTS" -eq 1 ]] && deploy_tests

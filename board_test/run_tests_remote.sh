@@ -4,9 +4,9 @@
 # Reads board.cfg. Tests must be deployed first (./deploy_to_board.sh).
 #
 # Usage:
-#   ./run_tests_remote.sh embedded     # run embedded tests only (no Docker, for TDA4VM)
-#   ./run_tests_remote.sh idps         # run all IDPS tests
-#   ./run_tests_remote.sh cases        # run all case*.sh tests
+#   ./run_tests_remote.sh embedded     # run embedded_tests/*.sh (quick actions)
+#   ./run_tests_remote.sh cases        # run embedded IDPS cases (test_cases/run_all_embedded_cases.sh, robust Falco check)
+#   ./run_tests_remote.sh idps         # run legacy idps/SYS-*.sh (from test/test_cases)
 #   ./run_tests_remote.sh all          # idps + cases
 #   ./run_tests_remote.sh --start-falco embedded  # start Falco then run embedded
 
@@ -59,6 +59,8 @@ start_falco_on_board() {
     "${SSH_CMD[@]}" "${TARGET}" "pkill falco 2>/dev/null; sleep 1; \
         if command -v systemctl >/dev/null 2>&1 && [ -f /etc/systemd/system/falco.service ]; then \
             systemctl start falco 2>/dev/null && echo 'Falco started (systemd)' || echo 'systemctl start falco failed'; \
+        elif [ -x /opt/falco-test/falco-start.sh ]; then \
+            /opt/falco-test/falco-start.sh; \
         elif [ -x /opt/falco-test/services/falco-start.sh ]; then \
             /opt/falco-test/services/falco-start.sh; \
         else \
@@ -76,7 +78,8 @@ run_one_test() {
     local name="$1"
     name="${name%.sh}"
     log_info "Running on board: ${name}"
-    run_remote "([ -f idps/${name}.sh ] && bash idps/${name}.sh) || ([ -f cases/${name}.sh ] && bash cases/${name}.sh) || echo 'Test not found: ${name}'"
+    # Prefer embedded test_cases (SYS-*.sh with check_falco_embedded), then idps, then legacy cases
+    run_remote "([ -f test_cases/${name}.sh ] && bash test_cases/${name}.sh) || ([ -f idps/${name}.sh ] && bash idps/${name}.sh) || ([ -f cases/${name}.sh ] && bash cases/${name}.sh) || echo 'Test not found: ${name}'"
 }
 
 run_all_idps() {
@@ -84,9 +87,27 @@ run_all_idps() {
     run_remote 'for f in idps/SYS-*.sh; do [ -f "$f" ] && echo "=== $f ===" && bash "$f"; done'
 }
 
+# Run AUTO embedded test cases only (safe for automation)
+run_auto_cases() {
+    log_info "Running AUTO test cases (test_cases/run_auto_cases.sh) on board..."
+    run_remote 'if [ -f test_cases/run_auto_cases.sh ]; then bash test_cases/run_auto_cases.sh; else echo "No test_cases/run_auto_cases.sh (deploy board_test first)"; exit 1; fi'
+}
+
+# Run MANUAL embedded test cases (may affect system; run when needed)
+run_manual_cases() {
+    log_info "Running MANUAL test cases (test_cases/run_manual_cases.sh) on board..."
+    run_remote 'if [ -f test_cases/run_manual_cases.sh ]; then bash test_cases/run_manual_cases.sh; else echo "No test_cases/run_manual_cases.sh (deploy board_test first)"; exit 1; fi'
+}
+
+# Run ALL embedded test cases (AUTO + MANUAL)
 run_all_cases() {
-    log_info "Running all case tests (cases/case*.sh) on board..."
-    run_remote 'for f in cases/case*.sh; do [ -f "$f" ] && echo "=== $f ===" && bash "$f"; done'
+    log_info "Running ALL embedded test cases (test_cases/run_all_embedded_cases.sh) on board..."
+    run_remote 'if [ -f test_cases/run_all_embedded_cases.sh ]; then bash test_cases/run_all_embedded_cases.sh; else echo "No test_cases/run_all_embedded_cases.sh (deploy board_test first)"; exit 1; fi'
+}
+
+run_all_embedded() {
+    log_info "Running all embedded tests (embedded/*.sh) on board..."
+    run_remote 'for f in embedded/*.sh; do [ -f "$f" ] && echo "=== $f ===" && bash "$f"; done'
 }
 
 # --- main
@@ -99,21 +120,24 @@ MODE="all"
 
 while [[ -n "$1" ]]; do
     case "$1" in
-        --start-falco) START_Falco=1; shift ;;
-        idps)         MODE="idps"; shift ;;
-        cases)        MODE="cases"; shift ;;
-        embedded)     MODE="embedded"; shift ;;
-        all)          MODE="all"; shift ;;
+        --start-falco) START_FALCO=1; shift ;;
+        idps)            MODE="idps"; shift ;;
+        cases)           MODE="cases"; shift ;;
+        cases-manual)    MODE="cases-manual"; shift ;;
+        cases-all)       MODE="cases-all"; shift ;;
+        embedded)        MODE="embedded"; shift ;;
+        all)             MODE="all"; shift ;;
         -h|--help)
             echo "Usage: $0 [mode] [--start-falco]"
-            echo "  mode: embedded | idps | cases | all | <test_name>"
+            echo "  mode: embedded | idps | cases | cases-manual | cases-all | all | <test_name>"
             echo "  --start-falco  Start Falco on board before running tests"
+            echo "  cases         run AUTO cases only (safe for automation)"
+            echo "  cases-manual  run MANUAL cases only (may affect system)"
+            echo "  cases-all     run all embedded cases (AUTO + MANUAL)"
             echo "  Examples:"
-            echo "    $0 --start-falco embedded  # start Falco + run embedded tests (no Docker)"
-            echo "    $0 embedded                # run embedded tests only"
-            echo "    $0 idps                    # run all SYS-*.sh"
-            echo "    $0 cases                   # run all case*.sh"
-            echo "    $0 SYS-PROC-001            # run single test"
+            echo "    $0 cases         # run auto cases only (safe)"
+            echo "    $0 cases-manual # run manual cases (write/mount/kill/CPU etc.)"
+            echo "    $0 SYS-PROC-001  # run single test"
             exit 0
             ;;
         *) MODE="$1"; shift ;;
@@ -133,7 +157,16 @@ case "$MODE" in
         run_all_idps
         ;;
     cases)
+        run_auto_cases
+        ;;
+    cases-manual)
+        run_manual_cases
+        ;;
+    cases-all)
         run_all_cases
+        ;;
+    embedded)
+        run_all_embedded
         ;;
     *)
         run_one_test "$MODE"

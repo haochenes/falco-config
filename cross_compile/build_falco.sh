@@ -25,7 +25,8 @@ BUILD_DIR="${SCRIPT_DIR}/build"
 INSTALL_DIR="${SCRIPT_DIR}/install"
 SRC_DIR="${SCRIPT_DIR}/src"
 PATCHES_DIR="${SCRIPT_DIR}/patches"
-CONFIG_FILE="${SCRIPT_DIR}/build.cfg"
+# Allow caller to pass config via env (e.g. BSP build_falco.sh)
+CONFIG_FILE="${CONFIG_FILE:-${SCRIPT_DIR}/build.cfg}"
 
 # Load configuration from build.cfg
 load_config() {

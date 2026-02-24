@@ -5,7 +5,7 @@
 ## 依赖
 
 - Falco 已通过 **cross_compile** 编译：`cross_compile/install/` 下存在 `bin/falco`、`etc/falco`、`share/falco`
-- 测试脚本（master）：`test/examples/`（case*.sh）→ 板子 `cases/`；`test/test_cases/`（SYS-*.sh）→ 板子 `idps/`
+- 测试脚本：`board_test/test_cases/`（嵌入式 SYS-*.sh，带 check_falco_embedded）→ 板子 `test_cases/`，**`./run_tests_remote.sh cases` 会跑这一套**；`test/examples/`→ 板子 `cases/`；`test/test_cases/`→ 板子 `idps/`
 - 板子可 SSH：在 `board.cfg` 中配置 IP、用户、密码（或密钥）
 
 ## 配置
@@ -37,6 +37,11 @@ cd board_test
 
 # 仅部署测试脚本
 ./deploy_to_board.sh --tests-only
+
+# 仅部署规则 + JSON 输出配置（告警写入 /var/log/falco/falco_events.json，便于合规）
+./deploy_to_board.sh --rules-only
+# 板端执行 systemctl restart falco 后，主机拉取 JSON 日志：
+./collect_falco_json_log.sh [输出文件.jsonl]
 ```
 
 ## 远程运行测试
@@ -50,10 +55,10 @@ cd board_test
 # 仅 IDPS 用例
 ./run_tests_remote.sh idps
 
-# 仅 cases 用例
+# 仅 cases 用例（嵌入式 test_cases，含 Falco 运行检测）
 ./run_tests_remote.sh cases
 
-# 单条用例
+# 单条用例（优先用 test_cases 里的 SYS-*.sh）
 ./run_tests_remote.sh SYS-PROC-001
 ./run_tests_remote.sh case1_sensitive_file_opening
 
