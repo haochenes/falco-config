@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-test.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"falcosecurity-rules-falco"
+		],
+		"name" : "falcosecurity-rules-falco"
+	}
+}

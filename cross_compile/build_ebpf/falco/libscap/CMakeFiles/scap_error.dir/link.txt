@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libscap_error.a CMakeFiles/scap_error.dir/strerror.c.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libscap_error.a

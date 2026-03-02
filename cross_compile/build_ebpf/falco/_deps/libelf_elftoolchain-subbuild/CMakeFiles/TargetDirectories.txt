@@ -1,0 +1,3 @@
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/libelf_elftoolchain-populate.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/edit_cache.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/rebuild_cache.dir

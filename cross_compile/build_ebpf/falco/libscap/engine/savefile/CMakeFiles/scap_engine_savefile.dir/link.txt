@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libscap_engine_savefile.a CMakeFiles/scap_engine_savefile.dir/scap_savefile.c.o CMakeFiles/scap_engine_savefile.dir/scap_reader_gzfile.c.o CMakeFiles/scap_engine_savefile.dir/scap_reader_buffered.c.o converter/CMakeFiles/scap_savefile_converter.dir/converter.cpp.o converter/CMakeFiles/scap_savefile_converter.dir/table.cpp.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libscap_engine_savefile.a

@@ -1,0 +1,13 @@
+# Target labels
+ container_plugin
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-update.rule

@@ -170,7 +170,7 @@ sudo apt-get install -y clang llvm
 
 ### events_dimensions_generator: not found (modern BPF cross-compile)
 
-When `BUILD_MODERN_BPF=ON`, falcosecurity-libs needs host-built generators; cross-compile may fail with this error. Workaround: set `BUILD_MODERN_BPF=OFF` and `MINIMAL_BUILD=ON` in `build.cfg` to produce an aarch64 binary (use `engine.kind: kmod` or `nodriver` on the board).
+When `BUILD_MODERN_BPF=ON`, falcosecurity-libs needs host-built generators; cross-compile may fail with this error. **Same applies to `./build_falco_ebpf.sh`** (modern eBPF–only script): it uses a separate `build_ebpf/` and `install_ebpf/` and may get past the libbpf/elf.h conflict, but will hit this generator limitation. Workaround: use **`./build_falco.sh`** with `BUILD_MODERN_BPF=OFF` and `BUILD_KMOD=ON` to produce an aarch64 binary and `falco.ko` (use `engine.kind: kmod` on the board).
 
 ## Build Configuration
 

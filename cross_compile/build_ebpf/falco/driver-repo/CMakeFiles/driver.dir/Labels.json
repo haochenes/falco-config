@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-test.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"driver"
+		],
+		"name" : "driver"
+	}
+}

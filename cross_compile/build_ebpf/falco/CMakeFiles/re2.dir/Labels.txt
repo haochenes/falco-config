@@ -1,0 +1,13 @@
+# Target labels
+ re2
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/re2
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/re2.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/re2-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/re2-prefix/src/re2-stamp/re2-update.rule

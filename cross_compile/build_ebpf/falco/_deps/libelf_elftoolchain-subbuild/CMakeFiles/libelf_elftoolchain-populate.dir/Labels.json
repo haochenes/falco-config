@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/libelf_elftoolchain-populate"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/libelf_elftoolchain-populate.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/CMakeFiles/libelf_elftoolchain-populate-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-test.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/libelf_elftoolchain-subbuild/libelf_elftoolchain-populate-prefix/src/libelf_elftoolchain-populate-stamp/libelf_elftoolchain-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libelf_elftoolchain-populate"
+		],
+		"name" : "libelf_elftoolchain-populate"
+	}
+}

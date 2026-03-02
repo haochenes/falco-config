@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libscap_engine_util.a CMakeFiles/scap_engine_util.dir/scap_engine_util.c.o CMakeFiles/scap_engine_util.dir/ringbuffer/devset.c.o CMakeFiles/scap_engine_util.dir/ringbuffer/ringbuffer.c.o CMakeFiles/scap_engine_util.dir/ringbuffer/ringbuffer_dump.c.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libscap_engine_util.a

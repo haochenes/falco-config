@@ -1,0 +1,13 @@
+# Target labels
+ falcoctl
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcoctl
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcoctl.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcoctl-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcoctl-prefix/src/falcoctl-stamp/falcoctl-update.rule

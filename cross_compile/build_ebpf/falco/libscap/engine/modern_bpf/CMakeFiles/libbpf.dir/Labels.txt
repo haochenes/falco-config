@@ -1,0 +1,13 @@
+# Target labels
+ libbpf
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/engine/modern_bpf/CMakeFiles/libbpf
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/engine/modern_bpf/CMakeFiles/libbpf.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/engine/modern_bpf/CMakeFiles/libbpf-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libbpf-prefix/src/libbpf-stamp/libbpf-update.rule

@@ -1,0 +1,13 @@
+# Target labels
+ jsoncpp
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/jsoncpp
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/jsoncpp.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/jsoncpp-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/jsoncpp-prefix/src/jsoncpp-stamp/jsoncpp-update.rule

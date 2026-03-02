@@ -1,0 +1,13 @@
+prefix=${pcfiledir}/../../
+libdir=${prefix}/lib
+includedir=${prefix}/include/falcosecurity
+
+Name: libsinsp
+Description: lib for System INSPection
+Version: 0.23.1
+License: Apache-2.0
+
+Requires: libscap jsoncpp
+Requires.private: re2 tbb
+Libs: -L${libdir} -L${libdir}/falcosecurity -lsinsp -ljsoncpp -lre2 -ltbb
+Cflags: -I${includedir} 

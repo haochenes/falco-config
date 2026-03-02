@@ -1,0 +1,3 @@
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/falcosecurity-libs.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/edit_cache.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/rebuild_cache.dir

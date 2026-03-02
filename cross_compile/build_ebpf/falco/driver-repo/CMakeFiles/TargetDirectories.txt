@@ -1,0 +1,3 @@
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/edit_cache.dir
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/rebuild_cache.dir

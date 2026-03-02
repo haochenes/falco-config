@@ -1,0 +1,13 @@
+# Target labels
+ tbb
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/tbb
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/tbb.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/tbb-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/tbb-prefix/src/tbb-stamp/tbb-update.rule

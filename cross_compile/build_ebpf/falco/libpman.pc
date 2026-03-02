@@ -1,0 +1,12 @@
+prefix=${pcfiledir}/../../
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libpman
+Description: Utility library for BPF probes
+Version: 0.23.1
+License: Apache-2.0
+
+Requires: libbpf zlib
+Libs: -L${libdir} -lpman -lscap_event_schema -lscap_platform
+Cflags: -I${includedir}
