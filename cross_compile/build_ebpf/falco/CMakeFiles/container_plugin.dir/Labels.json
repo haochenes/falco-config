@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/container_plugin-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/container_plugin-prefix/src/container_plugin-stamp/container_plugin-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"container_plugin"
+		],
+		"name" : "container_plugin"
+	}
+}

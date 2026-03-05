@@ -1,0 +1,13 @@
+# Target labels
+ uthash
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-update.rule

@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libdriver_event_schema.a "CMakeFiles/driver_event_schema.dir/__/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs/driver/fillers_table.c.o"
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libdriver_event_schema.a

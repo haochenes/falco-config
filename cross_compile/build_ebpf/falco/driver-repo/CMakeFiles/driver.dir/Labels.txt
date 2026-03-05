@@ -1,0 +1,14 @@
+# Target labels
+ driver
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/CMakeFiles/driver-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-test.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/driver-repo/driver-prefix/src/driver-stamp/driver-update.rule

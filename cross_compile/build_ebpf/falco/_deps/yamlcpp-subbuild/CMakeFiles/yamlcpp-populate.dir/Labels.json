@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/CMakeFiles/yamlcpp-populate"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/CMakeFiles/yamlcpp-populate.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/CMakeFiles/yamlcpp-populate-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-test.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/_deps/yamlcpp-subbuild/yamlcpp-populate-prefix/src/yamlcpp-populate-stamp/yamlcpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"yamlcpp-populate"
+		],
+		"name" : "yamlcpp-populate"
+	}
+}

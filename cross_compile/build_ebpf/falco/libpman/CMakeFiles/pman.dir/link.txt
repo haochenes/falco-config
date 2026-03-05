@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libpman.a CMakeFiles/pman.dir/src/stats.c.o CMakeFiles/pman.dir/src/maps.c.o CMakeFiles/pman.dir/src/lifecycle.c.o CMakeFiles/pman.dir/src/programs.c.o CMakeFiles/pman.dir/src/ringbuffer.c.o CMakeFiles/pman.dir/src/configuration.c.o CMakeFiles/pman.dir/src/state.c.o CMakeFiles/pman.dir/src/sc_set.c.o CMakeFiles/pman.dir/src/events_prog_table.c.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libpman.a

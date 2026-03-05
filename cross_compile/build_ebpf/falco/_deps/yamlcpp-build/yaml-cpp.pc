@@ -1,0 +1,11 @@
+prefix=/home/carlos/work/falco-config/cross_compile/install_ebpf
+exec_prefix=${prefix}
+includedir=/home/carlos/work/falco-config/cross_compile/install_ebpf/include
+libdir=/home/carlos/work/falco-config/cross_compile/install_ebpf/lib
+
+Name: Yaml-cpp
+Description: A YAML parser and emitter for C++
+Version: 0.8.0
+Requires:
+Libs: -L${libdir} -lyaml-cpp
+Cflags: -I${includedir}

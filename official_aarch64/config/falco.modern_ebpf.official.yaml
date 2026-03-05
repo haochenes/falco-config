@@ -1,0 +1,7 @@
+# 官方 aarch64 包：使用 modern eBPF 引擎，不加载 container 插件，避免 "container_id field into threads table" 初始化错误。
+# rules_files 由部署脚本通过覆盖板端 falco.yaml 设为仅 falco_rules_embedded.yaml（config.d 为 append 无法覆盖）。
+# 板端内核需支持 BTF 及 Falco eBPF 程序。部署: ./download_and_deploy.sh 0.40.0 --deploy --modern-ebpf
+
+load_plugins: []
+engine:
+  kind: modern_ebpf

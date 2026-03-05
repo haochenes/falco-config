@@ -1,0 +1,13 @@
+prefix=${pcfiledir}/../../
+libdir=${prefix}/lib
+includedir=${prefix}/include/falcosecurity
+
+Name: libscap
+Description: lib for System CAPture
+Version: 0.23.1
+License: Apache-2.0
+
+Requires: libelf libpman
+Requires.private: zlib
+Libs: -L${libdir} -L${libdir}/falcosecurity -lscap -lscap_error -lz -lscap_event_schema -ldriver_event_schema -lscap_error -lscap_platform -lscap_error -lscap_platform_util -lscap_engine_util -lscap_engine_nodriver -lscap_engine_noop -lscap_error -lscap_error -lscap_engine_savefile -lscap_engine_noop -lscap_error -lscap_platform_util -lz -lscap_error -lscap_engine_source_plugin -lscap_event_schema -ldriver_event_schema -lscap_error -lscap_engine_noop -lscap_error -lscap_error -lscap_engine_kmod -lscap_event_schema -ldriver_event_schema -lscap_error -lscap_platform -lscap_error -lscap_platform_util -lscap_engine_util -lscap_error -lscap_engine_bpf -lscap_event_schema -ldriver_event_schema -lscap_error -lscap_platform -lscap_error -lscap_platform_util -lscap_engine_util -lscap_error -lz -lscap_engine_modern_bpf -lscap_engine_util -lscap_engine_noop -lscap_error -lscap_error
+Cflags: -I${includedir}

@@ -1,0 +1,13 @@
+# Target labels
+ zlib
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/CMakeFiles/zlib
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/CMakeFiles/zlib.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/libscap/CMakeFiles/zlib-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/zlib-prefix/src/zlib-stamp/zlib-update.rule

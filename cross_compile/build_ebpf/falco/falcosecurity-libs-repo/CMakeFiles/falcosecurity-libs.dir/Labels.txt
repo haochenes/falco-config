@@ -1,0 +1,14 @@
+# Target labels
+ falcosecurity-libs
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/falcosecurity-libs
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/falcosecurity-libs.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/CMakeFiles/falcosecurity-libs-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-test.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-libs-repo/falcosecurity-libs-prefix/src/falcosecurity-libs-stamp/falcosecurity-libs-update.rule

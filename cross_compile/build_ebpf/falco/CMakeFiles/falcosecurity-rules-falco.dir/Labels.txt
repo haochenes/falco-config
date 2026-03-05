@@ -1,0 +1,14 @@
+# Target labels
+ falcosecurity-rules-falco
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/falcosecurity-rules-falco-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-test.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/falcosecurity-rules-falco-prefix/src/falcosecurity-rules-falco-stamp/falcosecurity-rules-falco-update.rule

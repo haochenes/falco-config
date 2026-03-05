@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/uthash-complete.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-build.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-configure.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-download.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-install.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-mkdir.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-patch.rule"
+		},
+		{
+			"file" : "/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/uthash-prefix/src/uthash-stamp/uthash-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"uthash"
+		],
+		"name" : "uthash"
+	}
+}

@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libscap_platform_util.a CMakeFiles/scap_platform_util.dir/scap_platform.c.o CMakeFiles/scap_platform_util.dir/scap_fds.c.o CMakeFiles/scap_platform_util.dir/scap_iflist.c.o CMakeFiles/scap_platform_util.dir/scap_proc_util.c.o CMakeFiles/scap_platform_util.dir/scap_procs.c.o CMakeFiles/scap_platform_util.dir/scap_userlist.c.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libscap_platform_util.a

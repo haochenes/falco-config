@@ -1,0 +1,2 @@
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ar qc libscap.a CMakeFiles/scap.dir/scap.c.o CMakeFiles/scap.dir/scap_api_version.c.o CMakeFiles/scap.dir/scap_savefile.c.o CMakeFiles/scap.dir/scap_platform_api.c.o
+/opt/cross-compile/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu//bin/aarch64-none-linux-gnu-ranlib libscap.a

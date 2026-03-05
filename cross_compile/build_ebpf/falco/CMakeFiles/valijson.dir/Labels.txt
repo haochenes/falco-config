@@ -1,0 +1,13 @@
+# Target labels
+ valijson
+# Source files and their labels
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/valijson
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/valijson.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/CMakeFiles/valijson-complete.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-build.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-configure.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-download.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-install.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-mkdir.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-patch.rule
+/home/carlos/work/falco-config/cross_compile/build_ebpf/falco/valijson-prefix/src/valijson-stamp/valijson-update.rule

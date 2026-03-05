@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/falco_engine.dir/evttype_index_ruleset.cpp.o"
+  "CMakeFiles/falco_engine.dir/evttype_index_ruleset.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/falco_common.cpp.o"
+  "CMakeFiles/falco_engine.dir/falco_common.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/falco_engine.cpp.o"
+  "CMakeFiles/falco_engine.dir/falco_engine.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/falco_load_result.cpp.o"
+  "CMakeFiles/falco_engine.dir/falco_load_result.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/falco_utils.cpp.o"
+  "CMakeFiles/falco_engine.dir/falco_utils.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/filter_details_resolver.cpp.o"
+  "CMakeFiles/falco_engine.dir/filter_details_resolver.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/filter_macro_resolver.cpp.o"
+  "CMakeFiles/falco_engine.dir/filter_macro_resolver.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/filter_ruleset.cpp.o"
+  "CMakeFiles/falco_engine.dir/filter_ruleset.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/filter_warning_resolver.cpp.o"
+  "CMakeFiles/falco_engine.dir/filter_warning_resolver.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/formats.cpp.o"
+  "CMakeFiles/falco_engine.dir/formats.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/logger.cpp.o"
+  "CMakeFiles/falco_engine.dir/logger.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/rule_loader.cpp.o"
+  "CMakeFiles/falco_engine.dir/rule_loader.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/rule_loader_collector.cpp.o"
+  "CMakeFiles/falco_engine.dir/rule_loader_collector.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/rule_loader_compiler.cpp.o"
+  "CMakeFiles/falco_engine.dir/rule_loader_compiler.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/rule_loader_reader.cpp.o"
+  "CMakeFiles/falco_engine.dir/rule_loader_reader.cpp.o.d"
+  "CMakeFiles/falco_engine.dir/stats_manager.cpp.o"
+  "CMakeFiles/falco_engine.dir/stats_manager.cpp.o.d"
+  "libfalco_engine.a"
+  "libfalco_engine.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/falco_engine.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
